@@ -9,20 +9,20 @@ if [ "$#" -ne 5 ]; then
     exit 1
 fi
 
+vmstat_mb=$(vmstat --unit M)
 hostname=$(hostname -f)
 
-cpu_number=$(lscpu | grep "^CPU(s):" | awk '{print $2}' | xargs)
-cpu_architecture=$(lscpu | grep "Architecture" | awk '{print $2}' | xargs)
-cpu_model=$(lscpu | grep "Model name" | cut -d ':' -f2 | xargs)
-cpu_mhz=$(lscpu | grep "CPU MHz" | awk '{print $3}' | xargs)
-l2_cache=$(lscpu | grep "L2 cache" | awk '{print $3}' | sed 's/K//' | xargs)
-total_mem=$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs)
+memory_free=$(echo "$vmstat_mb" | awk '{print $4}' | tail -n 1)
+cpu_idle=$(echo "$vmstat_mb" | awk '{print $15}' | tail -n 1)
+cpu_kernel=$(echo "$vmstat_mb" | awk '{print $14}' | tail -n 1)
+disk_io=$(vmstat -d | awk '{print $10}' | tail -n 1)
+disk_available=$(echo "$df_output" | awk '{print $4}' | tail -n 1 | sed 's/M//')
 
 timestamp=$(date "+%Y-%m-%d %H:%M:%S" -u)
 
 host_id="(SELECT id FROM host_info WHERE hostname='$hostname')";
 
-insert_stmt="INSERT INTO host_info (hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, l2_cache, total_mem, timestamp) VALUES ('$hostname', $cpu_number, '$cpu_architecture', '$cpu_model', $cpu_mhz, $l2_cache, $total_mem, '$timestamp');"
+insert_stmt="INSERT INTO host_usage (timestamp, host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available) VALUES ('$timestamp', $host_id, $memory_free, $cpu_idle, $cpu_kernel, $disk_io, $disk_available);"
 
 export PGPASSWORD=$psql_password
 psql -h $psql_host -p $psql_port -d $db_name -U $psql_user -c "$insert_stmt"
