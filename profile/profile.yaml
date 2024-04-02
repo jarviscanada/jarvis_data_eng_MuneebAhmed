@@ -35,7 +35,7 @@ skills:
 # List of Jarvis projects
 jarvis_projects:
   - name: "Cluster Monitor"
-    git_url: "https://github.com/jarviscanada/jarvis_data_eng_MuneebAhmed/tree/main/linux_sql"
+    git_url: "/linux_sql"
     # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
     # The project description must start with an action verb (https://bit.ly/3guO98u)
     description: Developed a Linux Cluster Monitoring Agent to monitor hardware specs and usage across Linux clusters. Used Bash for automation, PostgreSQL for data management, Docker for container management, and Git for version control. The project simplifies system monitoring with automated scripts and a PostgreSQL database, enabling system admins and developers to optimize performance. Features include real-time data collection, automated database updates, and essential insights into system health. Future plans include updating hardware spec changes and integrating data visualization tools.
