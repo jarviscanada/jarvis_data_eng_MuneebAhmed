@@ -4,9 +4,9 @@ I am a recent graduate from York University, where I earned a Bachelor's degree 
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
+**Proficient:** Java, Nextjs/React, RDBMS/SQL, Agile/Scrum, Git
 
-**Competent:** Nextjs/React, JavaScript/TypeScript, Nodejs, Docker, Python
+**Competent:** Linux/Bash, JavaScript/TypeScript, Nodejs, Docker, Python
 
 **Familiar:** AWS, LangChain/Flowise, Python, Redux, C
 

@@ -13,13 +13,13 @@ skills:
   # At least 5 skills
   proficient:
     - Java
-    - Linux/Bash
+    - Nextjs/React
     - RDBMS/SQL
     - Agile/Scrum
     - Git
   # At least 5 skills
   competent:
-    - Nextjs/React
+    - Linux/Bash
     - JavaScript/TypeScript
     - Nodejs
     - Docker
