@@ -1,6 +1,6 @@
 # Muneeb Ahmed . Jarvis Consulting
 
-I am a recent graduate from York University, where I earned a Bachelor's degree in Computer Science. At AiFocal, I led the development of the Defai project, which enabled users to create AI chatbots without coding, as well as integrating with messaging platforms like WhatsApp. My experience includes working with frontend technologies such as Next.js, React, TypeScript, and Tailwind CSS. I also contributed to backend components to ensure functionality, security, and accessibility for high-traffic web applications. I am enthusiastic to bring my experience and expertise to new challenges in the software industry. My goal is to develop products that make technology accessible and efficient for everyone.
+I am a recent graduate from York University, where I earned a Bachelor's degree in Computer Science. I have 18 months of professional experience as a Software Engineer. At AiFocal, I led the development of a project called Defai, which enabled users to create AI chatbots without coding, as well as integrating with messaging platforms like WhatsApp. My experience includes working with frontend technologies such as Next.js, React, TypeScript, and Tailwind CSS. I also contributed to backend components to ensure functionality, security, and accessibility for high-traffic web applications. I am enthusiastic to bring my experience and expertise to new challenges in the software industry. My goal is to develop products that make technology accessible and efficient for everyone.
 
 ## Skills
 
@@ -8,7 +8,7 @@ I am a recent graduate from York University, where I earned a Bachelor's degree 
 
 **Competent:** Linux/Bash, JavaScript/TypeScript, Nodejs, Docker, Python
 
-**Familiar:** AWS, LangChain/Flowise, Python, Redux, C
+**Familiar:** AWS, LLMs, Python, Redux, Figma
 
 ## Jarvis Projects
 
@@ -35,18 +35,18 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MuneebAhme
 
 
 ## Highlighted Projects
-**Rookery**: Developed a serverless bird identification learning website using Next.js, Mantine, and AWS Amplify, incorporating GraphQL, DynamoDB, and AWS S3 for data management and storage. I also integrated AWS authentication to enhance user experience by tracking and saving individual progress.
+**Rookery**: Developed a serverless bird identification learning website using Nextjs and AWS Amplify. Users can learn about Toronto birds in a fun and interactive way by doing engaging quizzes. This was created to make learning free for Toronto bird watchers. These quizzes are stored and managed using GraphQL, DynamoDB and AWS S3. Enhanced user experience by tracking and saving individual progress using AWS authentication.
 
-**FitAI** [[GitHub](https://github.com/ryzzer0/FitAI)]: Built FitAI, a Next.js web application designed to help users craft personalized workout plans. Leveraging Firebase for secure user authentication and real-time database updates, along with the OpenAI API for generating customized workout content, this tool combines AI with fitness. The user interface, developed with Mantine, ensures a seamless and intuitive user experience. Key features include secure login, AI-generated workout plans tailored to user preferences, and a dynamic database for real-time tracking. FitAI stands out for its modern, user-friendly interface and personalized approach to fitness planning.
+**FitAI** [[GitHub](https://github.com/ryzzer0/FitAI)]: Built FitAI, a Next.js web application that uses AI to help users craft personalized workout plans. Users fill out their current health and fitness goals through a modern and user friendly form designed using Mantine, and OpenAI API is used for generating the customized workout content. FitAI ensures secure user authentication and real time database updates using Firebase.
 
 
 ## Professional Experiences
 
 **Technical Consultant, Jarvis (2024-present)**: Developed comprehensive full-stack software solutions as part of Jarvis's team, focusing on leveraging Java, Linux/Bash, RDBMS/SQL, Agile/Scrum methodologies, and Git for efficient project management and deployment. Collaborated closely with cross-functional teams to design, implement, and refine scalable applications, enhancing business operations and user experiences
 
-**Software Engineer, AiFocal Inc. (2023-2023)**: Led the Defai project at AiFocal, utilizing Next.js, TypeScript, Tailwind CSS, and OpenAI API to create a no-code platform for AI chatbot integration with messaging platforms like WhatsApp. Developed the front-end UI and architecture and collaborated with back-end teams to ensure high traffic management, robust security, and user-friendly UI/UX design.
+**Software Engineer, AiFocal Inc. (2023-2023)**: Led a project called Defai, a no-code platform for AI chatbots, utilizing LLM tools like Langchain and Flowise. Ensured high traffic mangement and reliable security for a traffic load of 10,000 concurrent users by using microservice architecture. Created a fast and user friendly UI by utilizing Next.js, TypeScript, and Tailwind CSS for front-end UI and architecture.
 
-**Software Engineer, Boop (2023-2023)**: Engineered and maintained front-end components for Boop's web presence, employing Next.js, TypeScript, and Tailwind CSS to deliver a responsive and intuitive user experience. Designed and implemented company's website and business portal, focusing on performance optimization and cross-browser compatibility.
+**Software Engineer, Boop (2023-2023)**: Engineered and maintained front-end components for Boop's landing page and business portal using Nextjs, Typescript and Tailwind CSS. Optimized website performance by 30% by introducing server side rendering and reusable react server components.
 
 **Software Engineer, Rove (2020-2021)**: Contributed to client-side projects at Rove, focusing on creating responsive and accessible applications using React, Mantine, Node.js, and Tailwind CSS. Ensured seamless functionality across different devices and browsers using BrowserStack. Integrated APIs and participated in Agile/Scrum processes for iterative development and continuous improvement.
 
@@ -57,5 +57,5 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MuneebAhme
 
 ## Miscellaneous
 - Semi-Professional Esports Player
-- Graphic Designing
+- Graphic Designing [Behance](https://www.behance.net/muneeblast)
 - Volunteer, NEST: Volunteered for event management for Esports Tournaments at NEST
