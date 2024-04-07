@@ -1,4 +1,5 @@
 # Introduction
+This project sets up a database system for club management, aimed at staff who oversee member activities and facility usage. It's built on **PostgreSQL**, a powerful database system, ensuring reliable data storage and management. The structure of the database connects members, their bookings, and facilities, with a focus on easy retrieval and secure data handling. **Docker** is used to containerize the environment, **Git** for tracking changes, and **DBeaver** as SQL interfaces. This project serves as a practical tool for users to improve their SQL skills through hands-on experience with real-world data modeling and query challenges.
 
 # SQL Quries
 
