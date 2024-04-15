@@ -49,7 +49,7 @@ public interface JavaGrep {
 
     String getRootPath();
 
-    void setRootPath();
+    void setRootPath(String rootPath);
 
     String getRegex();
 
