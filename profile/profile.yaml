@@ -44,7 +44,7 @@ jarvis_projects:
     description:
       - "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
       - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-      - "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+      - "Grep App: Developed a Java-based application mimicking the grep command functionality from UNIX, enabling efficient search across large datasets. Leveraged Java 8 Streams and lambda expressions for pattern matching and file processing, enhancing performance and readability. The app recursively scans directories and outputs matched lines to a file, utilizing regular expressions for search criteria. Implemented robust error handling and optimized memory usage by processing files line by line, making it suitable for large-scale data processing."
   - name: "Springboot App"
     git_url: "/springboot"
     description: ""
