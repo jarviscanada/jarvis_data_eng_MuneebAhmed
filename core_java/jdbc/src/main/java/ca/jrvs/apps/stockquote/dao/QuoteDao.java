@@ -32,7 +32,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
             statement.setDouble(4, quote.getLow());
             statement.setDouble(5, quote.getPrice());
             statement.setInt(6, quote.getVolume());
-            statement.setDate(7, new java.sql.Date(quote.getLatestTradingDay().getTime()));
+            statement.setObject(7, quote.getLatestTradingDay() != null ? new java.sql.Date(quote.getLatestTradingDay().getTime()) : null);
             statement.setDouble(8, quote.getPreviousClose());
             statement.setDouble(9, quote.getChange());
             statement.setString(10, quote.getChangePercent());

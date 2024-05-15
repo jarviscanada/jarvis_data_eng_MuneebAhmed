@@ -3,6 +3,7 @@ package ca.jrvs.apps.stockquote.service;
 import ca.jrvs.apps.stockquote.Position;
 import ca.jrvs.apps.stockquote.dao.PositionDao;
 
+import java.util.List;
 import java.util.Optional;
 
 public class PositionService {
@@ -41,5 +42,13 @@ public class PositionService {
     public void sell(String ticker) {
         Optional<Position> existingPosition = dao.findById(ticker);
         existingPosition.ifPresent(position -> dao.deleteById(ticker));
+    }
+
+    public Optional<Position> findById(String ticker) {
+        return dao.findById(ticker);
+    }
+
+    public List<Position> getPortfolio() {
+        return dao.findAll();
     }
 }
