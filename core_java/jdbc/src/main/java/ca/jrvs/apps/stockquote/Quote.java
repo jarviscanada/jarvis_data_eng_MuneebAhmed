@@ -1,9 +1,27 @@
 package ca.jrvs.apps.stockquote;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.sql.Timestamp;
 import java.util.Date;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "symbol",
+        "open",
+        "high",
+        "low",
+        "price",
+        "volume",
+        "latestTradingDay",
+        "previousClose",
+        "change",
+        "changePercent",
+        "timestamp"
+})
+
 
 public class Quote {
     @JsonProperty("01. symbol")
@@ -28,7 +46,10 @@ public class Quote {
     private String changePercent;
     private Timestamp timestamp;
 
-    public Quote(String symbol, double open, double high, double low, double price, int volume, Date latestTradingDay, double previousClose, double change, String changePercent) {
+    public Quote() {
+    }
+
+    public Quote(String symbol, double open, double high, double low, double price, int volume, Date latestTradingDay, double previousClose, double change, String changePercent, Timestamp timestamp) {
         this.symbol = symbol;
         this.open = open;
         this.high = high;
@@ -39,6 +60,7 @@ public class Quote {
         this.previousClose = previousClose;
         this.change = change;
         this.changePercent = changePercent;
+        this.timestamp = (timestamp == null) ? new Timestamp(System.currentTimeMillis()) : timestamp;
     }
 
     public String getSymbol() {
@@ -127,5 +149,22 @@ public class Quote {
 
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
+    }
+
+    @Override
+    public String toString() {
+        return "Quote{" +
+                "symbol='" + symbol + '\'' +
+                ", open=" + open +
+                ", high=" + high +
+                ", low=" + low +
+                ", price=" + price +
+                ", volume=" + volume +
+                ", latestTradingDay=" + latestTradingDay +
+                ", previousClose=" + previousClose +
+                ", change=" + change +
+                ", changePercent='" + changePercent + '\'' +
+                ", timestamp=" + timestamp +
+                '}';
     }
 }

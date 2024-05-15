@@ -22,7 +22,7 @@ public class QuoteHttpHelperTest {
     private OkHttpClient mockClient;
 
     private QuoteHttpHelper quoteHelper;
-    private final String apiKey = "4005ECTTLOYCI940"; // Use actual API key
+    private final String apiKey = "6BIUVEQ38AG801L4"; // Use actual API key
 
     @BeforeEach
     void setUp() {
@@ -36,9 +36,7 @@ public class QuoteHttpHelperTest {
         String jsonResponse = "{\"Global Quote\": {\"01. symbol\": \"" + symbol + "\", \"05. price\": \"280.00\"}}";
 
         Request expectedRequest = new Request.Builder()
-                .url("https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&datatype=json")
-                .addHeader("X-RapidAPI-Key", apiKey)
-                .addHeader("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com")
+                .url("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&datatype=json&apikey=" + apiKey)
                 .build();
 
         Response mockResponse = new Response.Builder()

@@ -9,25 +9,36 @@ import java.util.Optional;
 
 public class PositionDao implements CrudDao<Position, String> {
     private Connection c;
+    private static final String INSERT = "INSERT INTO position (symbol, number_of_shares, value_paid) VALUES (?, ?, ?)";
+    private static final String UPDATE = "UPDATE position SET number_of_shares = ?, value_paid = ? WHERE symbol = ?";
+    private static final String DELETE = "DELETE FROM position WHERE symbol = ?";
+    private static final String DELETE_ALL = "DELETE FROM position";
+    private static final String SELECT_BY_ID = "SELECT * FROM position WHERE symbol = ?";
+    private static final String SELECT_ALL = "SELECT * FROM position";
     public PositionDao(Connection connection) {
         this.c = connection;
     }
 
     @Override
-    public Position save(Position entity) throws IllegalArgumentException {
-        if (entity == null) {
+    public Position save(Position position) throws IllegalArgumentException {
+        if (position == null) {
             throw new IllegalArgumentException("Cannot save a null entity");
         }
 
-        String sql = "INSERT INTO position (symbol, number_of_shares, value_paid) VALUES (?, ?, ?) ON CONFLICT (symbol) DO UPDATE SET number_of_shares = EXCLUDED.number_of_shares, value_paid = EXCLUDED.value_paid";
-
-        try (PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setString(1, entity.getTicker());
-            stmt.setInt(2, entity.getNumOfShares());
-            stmt.setDouble(3, entity.getValuePaid());
-            stmt.executeUpdate();
-
-            return entity;
+        Optional<Position> existingPosition = findById(position.getTicker());
+        String sql = existingPosition.isPresent() ? UPDATE : INSERT;
+        try (PreparedStatement statement = this.c.prepareStatement(sql)) {
+            if (existingPosition.isPresent()) {
+                statement.setInt(1, position.getNumOfShares());
+                statement.setDouble(2, position.getValuePaid());
+                statement.setString(3, position.getTicker());
+            } else {
+                statement.setString(1, position.getTicker());
+                statement.setInt(2, position.getNumOfShares());
+                statement.setDouble(3, position.getValuePaid());
+            }
+            statement.executeUpdate();
+            return findById(position.getTicker()).get();
         } catch (SQLException e) {
             throw new RuntimeException("Error saving position", e);
         }
@@ -39,17 +50,11 @@ public class PositionDao implements CrudDao<Position, String> {
             throw new IllegalArgumentException("Ticker cannot be null");
         }
 
-        String sql = "SELECT * FROM position WHERE symbol = ?";
-
-        try (PreparedStatement stmt = c.prepareStatement(sql)) {
-            stmt.setString(1, ticker);
-            ResultSet rs = stmt.executeQuery();
+        try (PreparedStatement statement = this.c.prepareStatement(SELECT_BY_ID)) {
+            statement.setString(1, ticker);
+            ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                Position position = new Position();
-                position.setTicker(rs.getString("symbol"));
-                position.setNumOfShares(rs.getInt("number_of_shares"));
-                position.setValuePaid(rs.getDouble("value_paid"));
-                return Optional.of(position);
+                return Optional.of(mapToPosition(rs));
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error finding position by ticker", e);
@@ -58,18 +63,12 @@ public class PositionDao implements CrudDao<Position, String> {
     }
 
     @Override
-    public Iterable<Position> findAll() {
+    public List<Position> findAll() {
         List<Position> positions = new ArrayList<>();
-        String sql = "SELECT * FROM position";
-
-        try (Statement stmt = c.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+        try (PreparedStatement statement = this.c.prepareStatement(SELECT_ALL)) {
+            ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                Position position = new Position();
-                position.setTicker(rs.getString("symbol"));
-                position.setNumOfShares(rs.getInt("number_of_shares"));
-                position.setValuePaid(rs.getDouble("value_paid"));
-                positions.add(position);
+                positions.add(mapToPosition(rs));
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all positions", e);
@@ -83,11 +82,9 @@ public class PositionDao implements CrudDao<Position, String> {
             throw new IllegalArgumentException("Ticker cannot be null");
         }
 
-        String sql = "DELETE FROM position WHERE symbol = ?";
-
-        try (PreparedStatement stmt = c.prepareStatement(sql)) {
-            stmt.setString(1, ticker);
-            stmt.executeUpdate();
+        try (PreparedStatement statement = this.c.prepareStatement(DELETE)) {
+            statement.setString(1, ticker);
+            statement.execute();
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting position by ticker", e);
         }
@@ -95,12 +92,18 @@ public class PositionDao implements CrudDao<Position, String> {
 
     @Override
     public void deleteAll() {
-        String sql = "DELETE FROM position";
-
-        try (Statement stmt = c.createStatement()) {
-            stmt.executeUpdate(sql);
+        try (PreparedStatement statement = this.c.prepareStatement(DELETE_ALL)) {
+            statement.execute();
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting all positions", e);
         }
+    }
+
+    private Position mapToPosition(ResultSet rs) throws SQLException {
+        Position position = new Position();
+        position.setTicker(rs.getString("symbol"));
+        position.setNumOfShares(rs.getInt("number_of_shares"));
+        position.setValuePaid(rs.getDouble("value_paid"));
+        return position;
     }
 }

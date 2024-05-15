@@ -1,10 +1,12 @@
 package ca.jrvs.apps.jdbc.stockquote;
 
+import ca.jrvs.apps.stockquote.DatabaseConnectionManager;
 import ca.jrvs.apps.stockquote.Quote;
 import ca.jrvs.apps.stockquote.dao.QuoteDao;
 import org.junit.jupiter.api.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Optional;
 
@@ -13,10 +15,13 @@ import java.util.Optional;
 public class QuoteDaoTest {
     private Connection conn;
     private QuoteDao quoteDao;
+    private DatabaseConnectionManager dcm;
 
     @BeforeAll
     public void setUp() throws Exception {
-        conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/stock_quote", "postgres", "password");
+        dcm = new DatabaseConnectionManager("localhost",
+                "stock_quote", "postgres", "password");
+        conn = dcm.getConnection();
         quoteDao = new QuoteDao(conn);
     }
 
@@ -27,7 +32,8 @@ public class QuoteDaoTest {
 
     @Test
     public void testSaveAndFind() {
-        Quote quote = new Quote("AAPL", 125.34, 130.00, 123.50, 129.00, 3000000, new Date(), 125.00, 4.00, "+3.20%");
+        Timestamp now = new Timestamp(new Date().getTime());
+        Quote quote = new Quote("AAPL", 125.34, 130.00, 123.50, 129.00, 3000000, new Date(), 125.00, 4.00, "+3.20%", now);
         quoteDao.save(quote);
         Optional<Quote> foundQuote = quoteDao.findById("AAPL");
         Assertions.assertTrue(foundQuote.isPresent());
