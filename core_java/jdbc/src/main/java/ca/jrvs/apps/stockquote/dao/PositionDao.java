@@ -1,6 +1,8 @@
 package ca.jrvs.apps.stockquote.dao;
 
 import ca.jrvs.apps.stockquote.Position;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,6 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class PositionDao implements CrudDao<Position, String> {
+    private static final Logger logger = LoggerFactory.getLogger(PositionDao.class);
+
     private Connection c;
     private static final String INSERT = "INSERT INTO position (symbol, number_of_shares, value_paid) VALUES (?, ?, ?)";
     private static final String UPDATE = "UPDATE position SET number_of_shares = ?, value_paid = ? WHERE symbol = ?";
@@ -22,6 +26,7 @@ public class PositionDao implements CrudDao<Position, String> {
     @Override
     public Position save(Position position) throws IllegalArgumentException {
         if (position == null) {
+            logger.error("Cannot save a null entity");
             throw new IllegalArgumentException("Cannot save a null entity");
         }
 
@@ -38,8 +43,12 @@ public class PositionDao implements CrudDao<Position, String> {
                 statement.setDouble(3, position.getValuePaid());
             }
             statement.executeUpdate();
-            return findById(position.getTicker()).get();
+            Position savedPosition = findById(position.getTicker()).get();
+            logger.info("Position saved: {}", savedPosition);
+            return savedPosition;
+
         } catch (SQLException e) {
+            logger.error("Error saving position: {}", position, e);
             throw new RuntimeException("Error saving position", e);
         }
     }
@@ -47,6 +56,7 @@ public class PositionDao implements CrudDao<Position, String> {
     @Override
     public Optional<Position> findById(String ticker) throws IllegalArgumentException {
         if (ticker == null) {
+            logger.error("Ticker cannot be null");
             throw new IllegalArgumentException("Ticker cannot be null");
         }
 
@@ -54,11 +64,15 @@ public class PositionDao implements CrudDao<Position, String> {
             statement.setString(1, ticker);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                return Optional.of(mapToPosition(rs));
+                Position position = mapToPosition(rs);
+                logger.info("Found position: {}", position);
+                return Optional.of(position);
             }
         } catch (SQLException e) {
+            logger.error("Error finding position by ticker: {}", ticker, e);
             throw new RuntimeException("Error finding position by ticker", e);
         }
+        logger.warn("No position found for ticker: {}", ticker);
         return Optional.empty();
     }
 
@@ -68,9 +82,12 @@ public class PositionDao implements CrudDao<Position, String> {
         try (PreparedStatement statement = this.c.prepareStatement(SELECT_ALL)) {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                positions.add(mapToPosition(rs));
+                Position position = mapToPosition(rs);
+                positions.add(position);
+                logger.info("Found position: {}", position);
             }
         } catch (SQLException e) {
+            logger.error("Error retrieving all positions", e);
             throw new RuntimeException("Error retrieving all positions", e);
         }
         return positions;
@@ -79,13 +96,16 @@ public class PositionDao implements CrudDao<Position, String> {
     @Override
     public void deleteById(String ticker) throws IllegalArgumentException {
         if (ticker == null) {
+            logger.error("Ticker cannot be null");
             throw new IllegalArgumentException("Ticker cannot be null");
         }
 
         try (PreparedStatement statement = this.c.prepareStatement(DELETE)) {
             statement.setString(1, ticker);
             statement.execute();
+            logger.info("Deleted position with ticker: {}", ticker);
         } catch (SQLException e) {
+            logger.error("Error deleting position by ticker: {}", ticker, e);
             throw new RuntimeException("Error deleting position by ticker", e);
         }
     }
@@ -94,7 +114,9 @@ public class PositionDao implements CrudDao<Position, String> {
     public void deleteAll() {
         try (PreparedStatement statement = this.c.prepareStatement(DELETE_ALL)) {
             statement.execute();
+            logger.info("Deleted all positions");
         } catch (SQLException e) {
+            logger.error("Error deleting all positions", e);
             throw new RuntimeException("Error deleting all positions", e);
         }
     }
