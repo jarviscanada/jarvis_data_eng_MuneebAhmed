@@ -22,7 +22,7 @@ public class QuoteHttpHelperTest {
     private OkHttpClient mockClient;
 
     private QuoteHttpHelper quoteHelper;
-    private final String apiKey = "6BIUVEQ38AG801L4"; // Use actual API key
+    private final String apiKey = "6BIUVEQ38AG801L4";
 
     @BeforeEach
     void setUp() {

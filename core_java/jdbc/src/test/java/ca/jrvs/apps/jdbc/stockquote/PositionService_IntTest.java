@@ -43,7 +43,6 @@ public class PositionService_IntTest {
 
     @BeforeEach
     void init() {
-        // Reset the AAPL position for each test
         Position position = new Position("AAPL", 50, 7500.0); // AAPL with 50 shares at $150 each
         positionDao.save(position);
     }

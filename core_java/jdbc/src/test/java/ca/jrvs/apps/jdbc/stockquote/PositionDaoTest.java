@@ -36,14 +36,11 @@ public class PositionDaoTest {
 
     @BeforeEach
     public void setupEach() throws Exception {
-        // Ensure each test starts with a known database state
-        // Delete all positions first to avoid foreign key constraint violations
         Timestamp now = new Timestamp(new Date().getTime());
 
         positionDao.deleteAll();
         quoteDao.deleteAll();
 
-        // Re-insert the necessary quote for each test
         Quote quote = new Quote("AAPL", 150.00, 155.00, 148.00, 154.00, 1000000, new java.sql.Date(System.currentTimeMillis()), 150.00, 4.00, "+2.67%", now);
         quoteDao.save(quote);
     }
