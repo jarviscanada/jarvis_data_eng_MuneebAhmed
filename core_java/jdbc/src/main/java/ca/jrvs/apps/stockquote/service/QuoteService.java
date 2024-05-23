@@ -19,11 +19,6 @@ public class QuoteService {
         this.httpHelper = httpHelper;
     }
 
-    /**
-     * Fetches latest quote data from endpoint and saves it to the database.
-     * @param ticker Symbol for which to fetch quote
-     * @return Latest quote information or empty optional if ticker symbol not found
-     */
     public Optional<Quote> fetchQuoteDataFromAPI(String ticker) {
         logger.info("Fetching quote data for ticker: {}", ticker);
         try {

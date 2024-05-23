@@ -43,7 +43,7 @@ public class PositionService_IntTest {
 
     @BeforeEach
     void init() {
-        Position position = new Position("AAPL", 50, 7500.0); // AAPL with 50 shares at $150 each
+        Position position = new Position("AAPL", 50, 7500.0);
         positionDao.save(position);
     }
 
@@ -51,8 +51,8 @@ public class PositionService_IntTest {
     void test_buy_valid_new() {
         Position position = positionService.buy("AAPL", 10, 155.0);
         assertEquals("AAPL", position.getTicker());
-        assertEquals(9050.0, position.getValuePaid());  // New purchase added
-        assertEquals(60, position.getNumOfShares());  // Existing shares plus new
+        assertEquals(9050.0, position.getValuePaid());
+        assertEquals(60, position.getNumOfShares());
     }
 
     @Test

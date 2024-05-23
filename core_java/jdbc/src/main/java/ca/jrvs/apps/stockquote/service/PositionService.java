@@ -18,13 +18,6 @@ public class PositionService {
         this.dao = dao;
     }
 
-    /**
-     * Processes a buy order and updates the database accordingly.
-     * @param ticker Symbol of the stock to buy
-     * @param numberOfShares Number of shares to buy
-     * @param price Price at which the shares were bought
-     * @return The updated or newly created position
-     */
     public Position buy(String ticker, int numberOfShares, double price) {
         logger.info("Buying {} shares of {} at price {}", numberOfShares, ticker, price);
         Optional<Position> existingPosition = dao.findById(ticker);
@@ -42,10 +35,6 @@ public class PositionService {
         return position;
     }
 
-    /**
-     * Sells all shares of the given ticker symbol and deletes the position from the database.
-     * @param ticker Symbol of the stock to sell
-     */
     public void sell(String ticker) {
         logger.info("Selling all shares of {}", ticker);
         Optional<Position> existingPosition = dao.findById(ticker);

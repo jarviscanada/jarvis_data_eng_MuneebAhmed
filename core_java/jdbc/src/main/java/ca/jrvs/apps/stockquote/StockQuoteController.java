@@ -21,9 +21,6 @@ public class StockQuoteController {
         this.positionService = positionService;
     }
 
-    /**
-     * User interface for our application
-     */
     public void initClient() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while (true) {

@@ -8,7 +8,6 @@ import java.util.List;
 
 public abstract class DataAccessObject <T extends DataTransferObject>{
     protected final Connection connection;
-//    protected final static String LAST_VAL = "SELECT LAST_VALUE() FROM";
     protected final static String CUSTOMER_SEQUENCE = "hp_customer_seq";
 
     public DataAccessObject(Connection connection){
@@ -24,7 +23,7 @@ public abstract class DataAccessObject <T extends DataTransferObject>{
 
     protected int getLastVal(String sequence){
         int key = 0;
-//        String sql = LAST_VAL + sequence;
+
         String sql = "SELECT currval('" + sequence + "')";
         try(Statement statement = connection.createStatement()){
             ResultSet rs = statement.executeQuery(sql);
