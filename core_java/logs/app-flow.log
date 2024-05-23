@@ -1,0 +1,52 @@
+2024-05-17 19:31:46 INFO  c.j.apps.stockquote.QuoteHttpHelper - Fetching quote for symbol: AAPL
+2024-05-17 19:37:22 INFO  c.j.apps.stockquote.QuoteHttpHelper - Fetching quote for symbol: AAPL
+2024-05-17 19:37:23 INFO  c.jrvs.apps.stockquote.dao.QuoteDao - Quote saved: Quote{symbol='AAPL', open=190.47, high=191.095, low=189.6601, price=189.84, volume=52845230, latestTradingDay=Thu May 16 00:00:00 UTC 2024, previousClose=189.72, change=0.12, changePercent='0.0633%', timestamp=null}
+2024-05-17 19:37:55 INFO  c.j.apps.stockquote.QuoteHttpHelper - Fetching quote for symbol: AAPL
+2024-05-17 19:37:55 INFO  c.jrvs.apps.stockquote.dao.QuoteDao - Quote saved: Quote{symbol='AAPL', open=190.47, high=191.095, low=189.6601, price=189.84, volume=52845230, latestTradingDay=Thu May 16 00:00:00 UTC 2024, previousClose=189.72, change=0.12, changePercent='0.0633%', timestamp=null}
+2024-05-17 19:38:13 INFO  c.j.apps.stockquote.QuoteHttpHelper - Fetching quote for symbol: AAPL
+2024-05-17 19:38:13 INFO  c.jrvs.apps.stockquote.dao.QuoteDao - Quote saved: Quote{symbol='AAPL', open=190.47, high=191.095, low=189.6601, price=189.84, volume=52845230, latestTradingDay=Thu May 16 00:00:00 UTC 2024, previousClose=189.72, change=0.12, changePercent='0.0633%', timestamp=null}
+2024-05-17 20:05:30 INFO  ca.jrvs.apps.stockquote.Main - Properties loaded successfully
+2024-05-17 20:05:30 INFO  ca.jrvs.apps.stockquote.Main - Database driver loaded: org.postgresql.Driver
+2024-05-17 20:05:31 INFO  ca.jrvs.apps.stockquote.Main - Database connection established to URL: jdbc:postgresql://localhost:5432/stock_quote
+2024-05-17 20:05:31 INFO  c.j.a.s.StockQuoteController - 
+Stock Quote App Menu:
+2024-05-17 20:05:41 INFO  c.j.a.s.service.QuoteService - Fetching quote data for ticker: AAPL
+2024-05-17 20:05:41 INFO  c.j.apps.stockquote.QuoteHttpHelper - Fetching quote for symbol: AAPL
+2024-05-17 20:05:42 INFO  c.jrvs.apps.stockquote.dao.QuoteDao - Quote saved: Quote{symbol='AAPL', open=190.47, high=191.095, low=189.6601, price=189.84, volume=52845230, latestTradingDay=Thu May 16 00:00:00 UTC 2024, previousClose=189.72, change=0.12, changePercent='0.0633%', timestamp=null}
+2024-05-17 20:05:42 INFO  c.j.a.s.service.QuoteService - Fetched and saved quote data: Quote{symbol='AAPL', open=190.47, high=191.095, low=189.6601, price=189.84, volume=52845230, latestTradingDay=Thu May 16 00:00:00 UTC 2024, previousClose=189.72, change=0.12, changePercent='0.0633%', timestamp=null}
+2024-05-17 20:05:42 INFO  c.j.a.s.StockQuoteController - Latest Stock Information: Quote{symbol='AAPL', open=190.47, high=191.095, low=189.6601, price=189.84, volume=52845230, latestTradingDay=Thu May 16 00:00:00 UTC 2024, previousClose=189.72, change=0.12, changePercent='0.0633%', timestamp=null}
+2024-05-17 20:05:42 INFO  c.j.a.s.StockQuoteController - 
+Stock Quote App Menu:
+2024-05-17 20:06:36 INFO  c.j.a.s.StockQuoteController - Retrieving portfolio
+2024-05-17 20:06:36 INFO  c.j.a.s.service.PositionService - Retrieving all positions
+2024-05-17 20:06:36 INFO  c.j.a.s.StockQuoteController - 
+Stock Quote App Menu:
+2024-05-17 20:06:46 INFO  c.j.a.s.service.QuoteService - Fetching quote data for ticker: AAPL
+2024-05-17 20:06:46 INFO  c.j.apps.stockquote.QuoteHttpHelper - Fetching quote for symbol: AAPL
+2024-05-17 20:06:46 INFO  c.jrvs.apps.stockquote.dao.QuoteDao - Quote saved: Quote{symbol='AAPL', open=190.47, high=191.095, low=189.6601, price=189.84, volume=52845230, latestTradingDay=Thu May 16 00:00:00 UTC 2024, previousClose=189.72, change=0.12, changePercent='0.0633%', timestamp=null}
+2024-05-17 20:06:46 INFO  c.j.a.s.service.QuoteService - Fetched and saved quote data: Quote{symbol='AAPL', open=190.47, high=191.095, low=189.6601, price=189.84, volume=52845230, latestTradingDay=Thu May 16 00:00:00 UTC 2024, previousClose=189.72, change=0.12, changePercent='0.0633%', timestamp=null}
+2024-05-17 20:06:46 INFO  c.j.a.s.StockQuoteController - Latest Stock Information: Quote{symbol='AAPL', open=190.47, high=191.095, low=189.6601, price=189.84, volume=52845230, latestTradingDay=Thu May 16 00:00:00 UTC 2024, previousClose=189.72, change=0.12, changePercent='0.0633%', timestamp=null}
+2024-05-17 20:06:51 INFO  c.j.a.s.service.PositionService - Buying 10 shares of AAPL at price 189.84
+2024-05-17 20:06:51 WARN  c.j.apps.stockquote.dao.PositionDao - No position found for ticker: AAPL
+2024-05-17 20:06:51 INFO  c.j.a.s.service.PositionService - Created new position: Position{ticker='AAPL', numOfShares=10, valuePaid=1898.4}
+2024-05-17 20:06:51 WARN  c.j.apps.stockquote.dao.PositionDao - No position found for ticker: AAPL
+2024-05-17 20:06:51 INFO  c.j.apps.stockquote.dao.PositionDao - Found position: Position{ticker='AAPL', numOfShares=10, valuePaid=1898.4}
+2024-05-17 20:06:51 INFO  c.j.apps.stockquote.dao.PositionDao - Position saved: Position{ticker='AAPL', numOfShares=10, valuePaid=1898.4}
+2024-05-17 20:06:51 INFO  c.j.a.s.StockQuoteController - Bought 10 shares of AAPL for a total of 1898.4
+2024-05-17 20:06:51 INFO  c.j.a.s.StockQuoteController - 
+Stock Quote App Menu:
+2024-05-17 20:06:54 INFO  c.j.a.s.StockQuoteController - Retrieving portfolio
+2024-05-17 20:06:54 INFO  c.j.a.s.service.PositionService - Retrieving all positions
+2024-05-17 20:06:54 INFO  c.j.apps.stockquote.dao.PositionDao - Found position: Position{ticker='AAPL', numOfShares=10, valuePaid=1898.4}
+2024-05-17 20:06:54 INFO  c.j.a.s.StockQuoteController - 
+Stock Quote App Menu:
+2024-05-17 20:07:01 INFO  c.j.a.s.service.PositionService - Finding position by ticker: AAPL
+2024-05-17 20:07:01 INFO  c.j.apps.stockquote.dao.PositionDao - Found position: Position{ticker='AAPL', numOfShares=10, valuePaid=1898.4}
+2024-05-17 20:07:01 INFO  c.j.a.s.service.PositionService - Selling all shares of AAPL
+2024-05-17 20:07:01 INFO  c.j.apps.stockquote.dao.PositionDao - Found position: Position{ticker='AAPL', numOfShares=10, valuePaid=1898.4}
+2024-05-17 20:07:01 INFO  c.j.apps.stockquote.dao.PositionDao - Deleted position with ticker: AAPL
+2024-05-17 20:07:01 INFO  c.j.a.s.service.PositionService - Deleted position: Position{ticker='AAPL', numOfShares=10, valuePaid=1898.4}
+2024-05-17 20:07:01 INFO  c.j.a.s.StockQuoteController - Sold 10 shares of AAPL for 1898.4
+2024-05-17 20:07:01 INFO  c.j.a.s.StockQuoteController - 
+Stock Quote App Menu:
+2024-05-17 20:07:11 INFO  c.j.a.s.StockQuoteController - Exiting the application. Goodbye!

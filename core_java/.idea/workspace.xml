@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee378e81-6bfc-4140-8a7a-70a044ec750e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../profile/profile.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../profile/profile.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +17,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -32,9 +35,9 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2f6cVGe5HSAr4K9p0TuNvTy9EjL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -42,25 +45,56 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.JDBCExecuter.executor": "Run",
     "Application.JavaGrepImp.executor": "Run",
     "Application.JavaGrepLambdaImp.executor": "Run",
     "Application.LambdaStreamExcImp.executor": "Run",
+    "Application.Main.executor": "Run",
+    "JUnit.NotSoSimpleCalculatorImpTest.abs.executor": "Run",
+    "JUnit.NotSoSimpleCalculatorImpTest.executor": "Run",
+    "JUnit.NotSoSimpleCalculatorImpTest.power.executor": "Run",
+    "JUnit.NotSoSimpleCalculatorImpTest.sqrt.executor": "Run",
+    "JUnit.PositionDaoTest.executor": "Run",
+    "JUnit.PositionService_IntTest.executor": "Run",
+    "JUnit.PositionService_UnitTest.executor": "Run",
+    "JUnit.QuoteDaoTest.executor": "Run",
+    "JUnit.QuoteHttpHelperTest.executor": "Run",
+    "JUnit.QuoteService_IntTest.executor": "Run",
+    "JUnit.QuoteService_IntTest.testFetchQuoteDataFromAPI.executor": "Debug",
+    "JUnit.QuoteService_UnitTest.executor": "Run",
+    "JUnit.SimpleCalculatorImpTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feautre/grep__profile",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/centos/dev/jarvis_data_eng_Muneeb/profile",
+    "last_opened_file_path": "/home/centos/dev/jarvis_data_eng_Muneeb",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.JavaGrepLambdaImp">
-    <configuration name="JavaGrepImp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.grep.JavaGrepImp" />
-      <module name="grep" />
-      <option name="PROGRAM_PARAMETERS" value=".*IllegalArgumentException.* ./grep/src /tmp/grep.out" />
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/jdbc/src/main" />
+      <recent name="$PROJECT_DIR$/jdbc/src/resources" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ca.jrvs.apps.jdbc.practice" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.stockquote.Main" />
+      <module name="jdbc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ca.jrvs.apps.grep.*" />
+          <option name="PATTERN" value="ca.jrvs.apps.stockquote.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -68,37 +102,73 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JavaGrepLambdaImp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.grep.JavaGrepLambdaImp" />
-      <module name="grep" />
+    <configuration name="PositionService_IntTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jdbc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ca.jrvs.apps.grep.*" />
+          <option name="PATTERN" value="ca.jrvs.apps.jdbc.stockquote.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="ca.jrvs.apps.jdbc.stockquote" />
+      <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.jdbc.stockquote.PositionService_IntTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LambdaStreamExcImp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.practice.LambdaStreamExcImp" />
-      <module name="grep" />
+    <configuration name="PositionService_UnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jdbc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ca.jrvs.apps.practice.*" />
+          <option name="PATTERN" value="ca.jrvs.apps.jdbc.stockquote.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="ca.jrvs.apps.jdbc.stockquote" />
+      <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.jdbc.stockquote.PositionService_UnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuoteHttpHelperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jdbc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.jrvs.apps.jdbc.stockquote.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ca.jrvs.apps.jdbc.stockquote" />
+      <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.jdbc.stockquote.QuoteHttpHelperTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuoteService_IntTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jdbc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.jrvs.apps.jdbc.stockquote.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ca.jrvs.apps.jdbc.stockquote" />
+      <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.jdbc.stockquote.QuoteService_IntTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.JavaGrepLambdaImp" />
-        <item itemvalue="Application.LambdaStreamExcImp" />
-        <item itemvalue="Application.JavaGrepImp" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.QuoteHttpHelperTest" />
+        <item itemvalue="JUnit.PositionService_IntTest" />
+        <item itemvalue="JUnit.PositionService_UnitTest" />
+        <item itemvalue="JUnit.QuoteService_IntTest" />
       </list>
     </recent_temporary>
   </component>
@@ -119,5 +189,16 @@
       <updated>1713124994718</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/jdbc/src/test/java/ca/jrvs/apps/jdbc/practice/SimpleCalculatorImpTest.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
