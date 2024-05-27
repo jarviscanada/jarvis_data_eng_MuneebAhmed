@@ -8,7 +8,7 @@ I am a recent graduate from York University, where I earned a Bachelor's degree 
 
 **Competent:** Linux/Bash, JavaScript/TypeScript, Nodejs, Docker, Python
 
-**Familiar:** AWS, LLMs, Python, Redux, Figma
+**Familiar:** AWS, LLMs, ThreeJS, Redux, Figma
 
 ## Jarvis Projects
 
@@ -22,16 +22,6 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MuneebAhme
   - Stock Quote App: Developed a stock wallet simulator that utilizes the Alpha Vantage API to retrieve stock data and a PostgreSQL database to persist user transactions. The application allows users to view stock quotes, buy stocks, and manage their portfolio with an infinite amount of virtual cash. Technologies used in this project include JDBC for database connectivity, PostgreSQL for data storage, Maven for project management and build automation, and Docker for containerization.
   - Grep App: Developed a Java-based application mimicking the grep command functionality from UNIX, enabling efficient search across large datasets. Leveraged Java 8 Streams and lambda expressions for pattern matching and file processing, enhancing performance and readability. The app recursively scans directories and outputs matched lines to a file, utilizing regular expressions for search criteria. Implemented robust error handling and optimized memory usage by processing files line by line, making it suitable for large-scale data processing.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MuneebAhmed/tree/master/springboot)]: Not Started
-
-**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MuneebAhmed/tree/master/python_data_anlytics)]: Not Started
-
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MuneebAhmed/tree/master/hadoop)]: Not Started
-
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MuneebAhmed/tree/master/spark)]: Not Started
-
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MuneebAhmed/tree/master/cloud_devops)]: Not Started
-
 
 ## Highlighted Projects
 **Rookery**: Developed a serverless bird identification learning website using Nextjs and AWS Amplify. Users can learn about Toronto birds in a fun and interactive way by doing engaging quizzes. This was created to make learning free for Toronto bird watchers. These quizzes are stored and managed using GraphQL, DynamoDB and AWS S3. Enhanced user experience by tracking and saving individual progress using AWS authentication.
@@ -41,7 +31,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MuneebAhme
 
 ## Professional Experiences
 
-**Technical Consultant, Jarvis (2024-present)**: Developed comprehensive full-stack software solutions as part of Jarvis's team, focusing on leveraging Java, Linux/Bash, RDBMS/SQL, Agile/Scrum methodologies, and Git for efficient project management and deployment. Collaborated closely with cross-functional teams to design, implement, and refine scalable applications, enhancing business operations and user experiences
+**Technical Consultant, Jarvis (2024-present)**: Developed comprehensive full-stack software solutions as part of Jarvis's team, focusing on leveraging Java, Linux/Bash, RDBMS/SQL, Agile/Scrum methodologies, and Git for efficient project management and deployment. Researched various software development tools to aid in the development of additional training projects. Assisted in troubleshooting and refining code to ensure high-quality software solutions.
 
 **Software Engineer, AiFocal Inc. (2023-2023)**: Led a project called Defai, a no-code platform for AI chatbots, utilizing LLM tools like Langchain and Flowise. Ensured high traffic mangement and reliable security for a traffic load of 10,000 concurrent users by using microservice architecture. Created a fast and user friendly UI by utilizing Next.js, TypeScript, and Tailwind CSS for front-end UI and architecture.
 

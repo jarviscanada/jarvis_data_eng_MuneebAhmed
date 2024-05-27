@@ -34,31 +34,6 @@
       ],
       "git_url": "/core_java",
       "name": "Core Java Apps"
-    },
-    {
-      "description": "",
-      "git_url": "/springboot",
-      "name": "Springboot App"
-    },
-    {
-      "description": "",
-      "git_url": "/python_data_anlytics",
-      "name": "Python Data Analytics"
-    },
-    {
-      "description": "",
-      "git_url": "/hadoop",
-      "name": "Hadoop"
-    },
-    {
-      "description": "",
-      "git_url": "/spark",
-      "name": "Spark"
-    },
-    {
-      "description": "",
-      "git_url": "/cloud_devops",
-      "name": "Cloud/DevOps"
     }
   ],
   "name": "Muneeb Ahmed",
@@ -75,7 +50,7 @@
   "professional_experience": [
     {
       "company": "Jarvis",
-      "description": "Developed comprehensive full-stack software solutions as part of Jarvis's team, focusing on leveraging Java, Linux/Bash, RDBMS/SQL, Agile/Scrum methodologies, and Git for efficient project management and deployment. Collaborated closely with cross-functional teams to design, implement, and refine scalable applications, enhancing business operations and user experiences",
+      "description": "Developed comprehensive full-stack software solutions as part of Jarvis's team, focusing on leveraging Java, Linux/Bash, RDBMS/SQL, Agile/Scrum methodologies, and Git for efficient project management and deployment. Researched various software development tools to aid in the development of additional training projects. Assisted in troubleshooting and refining code to ensure high-quality software solutions.",
       "duration": "2024-present",
       "title": "Technical Consultant"
     },
@@ -109,7 +84,7 @@
     "familiar": [
       "AWS",
       "LLMs",
-      "Python",
+      "ThreeJS",
       "Redux",
       "Figma"
     ],
