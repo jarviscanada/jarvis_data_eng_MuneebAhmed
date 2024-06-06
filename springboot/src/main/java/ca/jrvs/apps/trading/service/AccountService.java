@@ -1,6 +1,6 @@
 package ca.jrvs.apps.trading.service;
 
-import ca.jrvs.apps.trading.model.Account;
+import ca.jrvs.apps.trading.model.domain.Account;
 import ca.jrvs.apps.trading.dao.AccountDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
