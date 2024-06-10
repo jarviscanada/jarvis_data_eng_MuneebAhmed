@@ -1,6 +1,7 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.config.MarketDataConfig;
+import ca.jrvs.apps.trading.model.domain.AlphaVantageQuote;
 import ca.jrvs.apps.trading.model.domain.IexQuote;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,6 +17,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicHeader;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,8 +28,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MarketDataDao {
 
-    private static final String IEX_BATCH_PATH = "/stock/market/batch?symbols=%s&types=quote&token=";
-    private final String IEX_BATCH_URL;
+//    private static final String IEX_BATCH_PATH = "/stock/market/batch?symbols=%s&types=quote&token=";
+//    private final String IEX_BATCH_URL;
+    private static final String ALPHA_VANTAGE_FUNCTION = "GLOBAL_QUOTE";
+    private final String alphaVantageUrl;
+    private final String rapidApiHost;
+    private final String rapidApiKey;
+
+
 
     private Logger logger = LoggerFactory.getLogger(MarketDataDao.class);
     private HttpClientConnectionManager httpClientConnectionManager;
@@ -37,7 +45,10 @@ public class MarketDataDao {
     public MarketDataDao(HttpClientConnectionManager httpClientConnectionManager,
                          MarketDataConfig marketDataConfig) {
         this.httpClientConnectionManager = httpClientConnectionManager;
-        this.IEX_BATCH_URL = marketDataConfig.getHost() + IEX_BATCH_PATH + marketDataConfig.getToken();
+//        this.IEX_BATCH_URL = marketDataConfig.getHost() + IEX_BATCH_PATH + marketDataConfig.getToken();
+        this.alphaVantageUrl = marketDataConfig.getHost() + "?function=" + ALPHA_VANTAGE_FUNCTION + "&symbol=%s&apikey=" + marketDataConfig.getToken();
+        this.rapidApiHost = marketDataConfig.getRapidApiHost();
+        this.rapidApiKey = marketDataConfig.getToken();
         this.objectMapper = new ObjectMapper();
     }
 
@@ -48,9 +59,9 @@ public class MarketDataDao {
      * @throws IllegalArgumentException if ticker is invalid
      * @throws DataRetrievalFailureException if http request failed
      */
-    public Optional<IexQuote> findById(String ticker) {
-        List<IexQuote> quotes = findAllById(Collections.singletonList(ticker));
-        if (quotes.size() == 0) {
+    public Optional<AlphaVantageQuote> findById(String ticker) {
+        List<AlphaVantageQuote> quotes = findAllById(Collections.singletonList(ticker));
+        if (quotes.isEmpty()) {
             return Optional.empty();
         } else if (quotes.size() == 1) {
             return Optional.of(quotes.get(0));
@@ -66,7 +77,7 @@ public class MarketDataDao {
      * @throws IllegalArgumentException if any ticker is invalid or tickers are empty
      * @throws DataRetrievalFailureException if http request failed
      */
-    public List<IexQuote> findAllById(Iterable<String> tickers) {
+    public List<AlphaVantageQuote> findAllById(Iterable<String> tickers) {
         List<String> tickersInputList = new LinkedList<>();
         tickers.iterator().forEachRemaining(tickersInputList::add);
 
@@ -74,27 +85,29 @@ public class MarketDataDao {
             throw new IllegalArgumentException("No tickers provided.");
         }
 
-        String tickersString = String.join(",", tickersInputList);
-        String url = String.format(IEX_BATCH_URL, tickersString);
+        List<AlphaVantageQuote> quotesOutput = new LinkedList<>();
+        for (String ticker : tickersInputList) {
+            String url = String.format(alphaVantageUrl, ticker);
 
-        String responseString = executeHttpGet(url)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid ticker"));
+            String responseString = executeHttpGet(url)
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid ticker"));
 
-        List<IexQuote> quotesOutput = new LinkedList<>();
-        try {
-            JsonNode iexQuotesJson = objectMapper.readTree(responseString);
-            for (String tickerName : tickersInputList) {
-                JsonNode tickerNode = iexQuotesJson.path(tickerName.toUpperCase());
-                if (tickerNode.isMissingNode()) {
-                    throw new IllegalArgumentException("No ticker " + tickerName + " found in response");
-                } else {
-                    quotesOutput.add(objectMapper.treeToValue(tickerNode.path("quote"), IexQuote.class));
+            try {
+                JsonNode root = objectMapper.readTree(responseString);
+                JsonNode globalQuoteNode = root.path("Global Quote");
+
+                if (globalQuoteNode.isMissingNode() || globalQuoteNode.size() == 0) {
+                    throw new IllegalArgumentException("No quote found for ticker: " + ticker);
                 }
+
+                AlphaVantageQuote quote = objectMapper.treeToValue(globalQuoteNode, AlphaVantageQuote.class);
+                quotesOutput.add(quote);
+            } catch (IOException e) {
+                throw new IllegalArgumentException("Failure parsing response", e);
             }
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Failure parsing response", e);
         }
         return quotesOutput;
+
     }
 
     /**
@@ -106,6 +119,8 @@ public class MarketDataDao {
     private Optional<String> executeHttpGet(String url) {
         try (CloseableHttpClient httpClient = getHttpClient()) {
             HttpGet httpGet = new HttpGet(url);
+            httpGet.setHeader(new BasicHeader("x-rapidapi-key", rapidApiKey));
+            httpGet.setHeader(new BasicHeader("x-rapidapi-host", rapidApiHost));
             try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
                 StatusLine statusLine = response.getStatusLine();
                 switch (statusLine.getStatusCode()) {

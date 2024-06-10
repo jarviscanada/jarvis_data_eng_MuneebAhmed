@@ -1,6 +1,8 @@
 package ca.jrvs.apps.trading.controller;
 
+import ca.jrvs.apps.trading.model.domain.AlphaVantageQuote;
 import ca.jrvs.apps.trading.model.domain.IexQuote;
+import ca.jrvs.apps.trading.model.domain.Quote;
 import ca.jrvs.apps.trading.service.QuoteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/quote")
@@ -22,16 +26,24 @@ public class QuoteController {
         this.quoteService = quoteService;
     }
 
-    @GetMapping("/iex/ticker/{ticker}")
+    @GetMapping("/av/ticker/{ticker}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public IexQuote getQuote(@PathVariable String ticker) {
+    public AlphaVantageQuote getQuote(@PathVariable String ticker) {
         try {
-            return quoteService.findIexQuoteByTicker(ticker);
+            return quoteService.findAlphaVantageQuoteByTicker(ticker);
         } catch (Exception e) {
             throw ResponseExceptionUtil.getResponseStatusException(e);
         }
     }
 
-
+    @PutMapping("/avMarketData")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateMarketData() {
+        try {
+            quoteService.updateMarketData();
+        } catch (Exception e) {
+            throw ResponseExceptionUtil.getResponseStatusException(e);
+        }
+    }
 }

@@ -12,17 +12,22 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
     private Logger logger = LoggerFactory.getLogger(AppConfig.class);
 
-    @Value("${app.IEX_HOST}")
-    private String IEX_HOST;
+    @Value("${app.ALPHA_VANTAGE_HOST}")
+    private String alphaVantageHost;
 
-    @Value("${app.IEX_PUB_TOKEN}")
-    private String IEX_PUB_TOKEN;
+    @Value("${app.ALPHA_VANTAGE_API_KEY}")
+    private String alphaVantageApiKey;
+
+    @Value("${app.RAPIDAPI_HOST}")
+    private String rapidApiHost;
+
 
     @Bean
     public MarketDataConfig marketDataConfig() {
         MarketDataConfig marketDataConfig = new MarketDataConfig();
-        marketDataConfig.setHost(IEX_HOST);
-        marketDataConfig.setToken(IEX_PUB_TOKEN);
+        marketDataConfig.setHost(alphaVantageHost);
+        marketDataConfig.setToken(alphaVantageApiKey);
+        marketDataConfig.setRapidApiHost(rapidApiHost);
         return marketDataConfig;
     }
 
