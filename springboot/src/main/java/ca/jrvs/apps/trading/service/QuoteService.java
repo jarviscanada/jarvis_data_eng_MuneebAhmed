@@ -3,7 +3,6 @@ package ca.jrvs.apps.trading.service;
 import ca.jrvs.apps.trading.dao.MarketDataDao;
 import ca.jrvs.apps.trading.dao.QuoteDao;
 import ca.jrvs.apps.trading.model.domain.AlphaVantageQuote;
-import ca.jrvs.apps.trading.model.domain.IexQuote;
 import ca.jrvs.apps.trading.model.domain.Quote;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,15 +44,9 @@ public class QuoteService {
         return quotes;
     }
 
-    private Quote saveQuote(String ticker) {
+    public Quote saveQuote(String ticker) {
         AlphaVantageQuote alphaVantageQuote = findAlphaVantageQuoteByTicker(ticker);
-        Quote quote = new Quote();
-        quote.setTicker(alphaVantageQuote.getTicker());
-        quote.setLastPrice(alphaVantageQuote.getLastPrice());
-        quote.setBidPrice(alphaVantageQuote.getBidPrice());
-        quote.setBidSize(alphaVantageQuote.getBidSize());
-        quote.setAskPrice(alphaVantageQuote.getAskPrice());
-        quote.setAskSize(alphaVantageQuote.getAskSize());
+        Quote quote = buildQuoteFromAlphaVantageQuote(alphaVantageQuote);
         return quoteDao.save(quote);
     }
 
@@ -64,6 +57,35 @@ public class QuoteService {
                 .collect(Collectors.toList());
         saveQuotes(tickers);
     }
+
+    public Quote saveQuote(Quote quote) {
+        return quoteDao.save(quote);
+    }
+    public List<Quote> findAllQuotes() {
+        return quoteDao.findAll();
+    }
+
+    protected static Quote buildQuoteFromAlphaVantageQuote(AlphaVantageQuote alphaVantageQuote) {
+        Quote quote = new Quote();
+        quote.setTicker(alphaVantageQuote.getTicker());
+
+        quote.setLastPrice(alphaVantageQuote.getLastPrice() != null ? alphaVantageQuote.getLastPrice() : 0.0);
+        quote.setBidPrice(alphaVantageQuote.getBidPrice() != null ? alphaVantageQuote.getBidPrice() : 0.0);
+        quote.setBidSize(alphaVantageQuote.getBidSize() != null ? alphaVantageQuote.getBidSize() : 0);
+        quote.setAskPrice(alphaVantageQuote.getAskPrice() != null ? alphaVantageQuote.getAskPrice() : 0.0);
+        quote.setAskSize(alphaVantageQuote.getAskSize() != null ? alphaVantageQuote.getAskSize() : 0);
+
+        return quote;
+    }
+
+    public boolean validateTicker(String ticker) {
+        try {
+            return findAlphaVantageQuoteByTicker(ticker) != null;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
+
 
 
 }

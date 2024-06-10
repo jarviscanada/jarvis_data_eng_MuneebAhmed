@@ -46,4 +46,41 @@ public class QuoteController {
             throw ResponseExceptionUtil.getResponseStatusException(e);
         }
     }
+
+    @PutMapping("/")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Quote putQuote(@RequestBody Quote quote) {
+        try {
+            if (!quoteService.validateTicker(quote.getTicker())) {
+                throw new IllegalArgumentException("Invalid ticker: " + quote.getTicker());
+            }
+            return quoteService.saveQuote(quote);
+        } catch (Exception e) {
+            throw ResponseExceptionUtil.getResponseStatusException(e);
+        }
+    }
+
+    @PostMapping("/tickerId/{tickerId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public Quote createQuote(@PathVariable String tickerId) {
+        try {
+            return quoteService.saveQuote(tickerId);
+        } catch (Exception e) {
+            throw ResponseExceptionUtil.getResponseStatusException(e);
+        }
+    }
+
+    @GetMapping("/dailyList")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Quote> getDailyList() {
+        try {
+            return quoteService.findAllQuotes();
+        } catch (Exception e) {
+            throw ResponseExceptionUtil.getResponseStatusException(e);
+        }
+    }
+
 }
