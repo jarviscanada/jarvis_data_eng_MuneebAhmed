@@ -1,9 +1,10 @@
 package ca.jrvs.apps.trading.dao;
 
-import ca.jrvs.apps.trading.model.domain.Trader;
+import ca.jrvs.apps.trading.model.domain.Position;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TraderDao extends JpaRepository<Trader, Integer> {
+public interface PositionDao extends JpaRepository<Position, Long> {
+    long countByAccountId(int accountId);
 }

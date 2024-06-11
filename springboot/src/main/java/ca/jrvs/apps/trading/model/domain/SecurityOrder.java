@@ -8,7 +8,7 @@ public class SecurityOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
@@ -30,11 +30,11 @@ public class SecurityOrder {
     @Column(name = "notes")
     private String notes;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
