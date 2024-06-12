@@ -3,8 +3,11 @@ ca\jrvs\apps\trading\SwaggerConfig.class
 ca\jrvs\apps\trading\model\config\MarketDataConfig.class
 ca\jrvs\apps\trading\model\domain\SecurityOrder.class
 ca\jrvs\apps\trading\service\AccountService.class
+ca\jrvs\apps\trading\controller\OrderController.class
 ca\jrvs\apps\trading\controller\QuoteController.class
+ca\jrvs\apps\trading\service\DashboardService.class
 ca\jrvs\apps\trading\controller\TraderAccountController.class
+ca\jrvs\apps\trading\model\view\PortfolioView.class
 ca\jrvs\apps\trading\controller\ResponseExceptionUtil.class
 ca\jrvs\apps\trading\model\domain\Account.class
 ca\jrvs\apps\trading\AppConfig.class
@@ -13,7 +16,9 @@ ca\jrvs\apps\trading\dao\QuoteDao.class
 ca\jrvs\apps\trading\service\QuoteService.class
 ca\jrvs\apps\trading\model\domain\Quote.class
 ca\jrvs\apps\trading\model\domain\IexQuote.class
+ca\jrvs\apps\trading\controller\DashboardController.class
 ca\jrvs\apps\trading\dao\TraderDao.class
+ca\jrvs\apps\trading\model\view\SecurityRow.class
 ca\jrvs\apps\trading\dao\SecurityOrderDao.class
 ca\jrvs\apps\trading\dao\AccountDao.class
 ca\jrvs\apps\trading\model\domain\Trader.class
