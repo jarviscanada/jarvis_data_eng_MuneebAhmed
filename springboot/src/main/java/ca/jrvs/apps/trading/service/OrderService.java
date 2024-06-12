@@ -58,27 +58,21 @@ public class OrderService {
     protected void handleBuyMarketOrder(MarketOrder marketOrder, SecurityOrder securityOrder, Account account, Quote quote) {
         double price = quote.getAskPrice();
         double totalCost = price * marketOrder.getSize();
-        System.out.println("Total cost calculated: " + totalCost);
 
         if (account.getAmount() < totalCost) {
             securityOrder.setStatus("CANCELED");
             securityOrder.setNotes("Insufficient funds");
-            System.out.println("Buy order canceled: Insufficient funds");
         } else {
             account.setAmount(account.getAmount() - totalCost);
             accountDao.save(account);
-            System.out.println("Account updated: " + account);
 
             securityOrder.setPrice(price);
             securityOrder.setStatus("FILLED");
-            System.out.println("Buy order filled: " + securityOrder);
         }
     }
 
     protected void handleSellMarketOrder(MarketOrder marketOrder, SecurityOrder securityOrder, Account account, Quote quote) {
-        System.out.println("Executing sell order: " + marketOrder);
         Position position = positionDao.findById(new Position.PositionId(account.getId(), marketOrder.getTicker())).orElse(null);
-        System.out.println("Position found: " + position);
 
         if (position == null || position.getPosition() < Math.abs(marketOrder.getSize())) {
             securityOrder.setStatus("CANCELED");

@@ -9,7 +9,6 @@ public class MarketOrder {
 
     public enum Option { BUY, SELL }
 
-    // Getters and Setters
     public String getTicker() {
         return ticker;
     }

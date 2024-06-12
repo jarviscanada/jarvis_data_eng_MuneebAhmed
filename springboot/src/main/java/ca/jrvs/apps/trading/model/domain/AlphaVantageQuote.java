@@ -20,7 +20,7 @@ public class AlphaVantageQuote {
     private Double askPrice = 0.0;
     private Integer askSize = 0;
 
-    // Custom setter to handle raw JSON fields
+
     @JsonProperty("01. symbol")
     private void unpackTicker(String ticker) {
         this.rawTicker = ticker;
@@ -33,7 +33,7 @@ public class AlphaVantageQuote {
         this.lastPrice = lastPrice;
     }
 
-    // Getters and Setters
+
     public String getTicker() {
         return ticker;
     }

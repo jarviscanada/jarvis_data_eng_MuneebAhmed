@@ -28,8 +28,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MarketDataDao {
 
-//    private static final String IEX_BATCH_PATH = "/stock/market/batch?symbols=%s&types=quote&token=";
-//    private final String IEX_BATCH_URL;
     private static final String ALPHA_VANTAGE_FUNCTION = "GLOBAL_QUOTE";
     private final String alphaVantageUrl;
     private final String rapidApiHost;
@@ -45,20 +43,12 @@ public class MarketDataDao {
     public MarketDataDao(HttpClientConnectionManager httpClientConnectionManager,
                          MarketDataConfig marketDataConfig) {
         this.httpClientConnectionManager = httpClientConnectionManager;
-//        this.IEX_BATCH_URL = marketDataConfig.getHost() + IEX_BATCH_PATH + marketDataConfig.getToken();
         this.alphaVantageUrl = marketDataConfig.getHost() + "?function=" + ALPHA_VANTAGE_FUNCTION + "&symbol=%s&apikey=" + marketDataConfig.getToken();
         this.rapidApiHost = marketDataConfig.getRapidApiHost();
         this.rapidApiKey = marketDataConfig.getToken();
         this.objectMapper = new ObjectMapper();
     }
 
-    /**
-     * Get a quote from Iex
-     * @param ticker
-     * @return quote corresponding to the ticker
-     * @throws IllegalArgumentException if ticker is invalid
-     * @throws DataRetrievalFailureException if http request failed
-     */
     public Optional<AlphaVantageQuote> findById(String ticker) {
         List<AlphaVantageQuote> quotes = findAllById(Collections.singletonList(ticker));
         if (quotes.isEmpty()) {
@@ -70,13 +60,6 @@ public class MarketDataDao {
         }
     }
 
-    /**
-     * Get quotes from Iex
-     * @param tickers list of tickers
-     * @return list of quotes
-     * @throws IllegalArgumentException if any ticker is invalid or tickers are empty
-     * @throws DataRetrievalFailureException if http request failed
-     */
     public List<AlphaVantageQuote> findAllById(Iterable<String> tickers) {
         List<String> tickersInputList = new LinkedList<>();
         tickers.iterator().forEachRemaining(tickersInputList::add);
@@ -110,12 +93,6 @@ public class MarketDataDao {
 
     }
 
-    /**
-     * Execute a GET request and return HTTP entity/body as a string
-     * @param url resource for GET request
-     * @return HTTP response body or Optional.empty for 404 status
-     * @throws DataRetrievalFailureException if HTTP failed or status code is unexpected
-     */
     private Optional<String> executeHttpGet(String url) {
         try (CloseableHttpClient httpClient = getHttpClient()) {
             HttpGet httpGet = new HttpGet(url);
@@ -138,10 +115,6 @@ public class MarketDataDao {
         }
     }
 
-    /**
-     * Get an HTTP client from the connection manager
-     * @return CloseableHttpClient
-     */
     private CloseableHttpClient getHttpClient() {
         return HttpClients.custom()
                 .setConnectionManager(httpClientConnectionManager)
