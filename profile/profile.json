@@ -34,6 +34,11 @@
       ],
       "git_url": "/core_java",
       "name": "Core Java Apps"
+    },
+    {
+      "description": "Developed an app that is designed to manage client accounts and execute security orders within a trading system. The application facilitates the management of clients and their accounts, executes buy and sell orders for securities, and provides real-time market data. The project uses Java, Spring Boot, Docker, PostgreSQL, and integrates with the Alpha Vantage API for market data.",
+      "git_url": "/springboot",
+      "name": "Springboot App"
     }
   ],
   "name": "Muneeb Ahmed",
@@ -79,14 +84,14 @@
       "JavaScript/TypeScript",
       "Nodejs",
       "Docker",
-      "Python"
+      "Springboot"
     ],
     "familiar": [
       "AWS",
       "LLMs",
       "ThreeJS",
       "Redux",
-      "Figma"
+      "Python"
     ],
     "proficient": [
       "Java",
