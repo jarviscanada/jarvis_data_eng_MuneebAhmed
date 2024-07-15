@@ -6,9 +6,9 @@ I am a recent graduate from York University, where I earned a Bachelor's degree 
 
 **Proficient:** Java, Nextjs/React, RDBMS/SQL, Agile/Scrum, Git
 
-**Competent:** Linux/Bash, JavaScript/TypeScript, Nodejs, Docker, Python
+**Competent:** Linux/Bash, JavaScript/TypeScript, Nodejs, Docker, Springboot
 
-**Familiar:** AWS, LLMs, ThreeJS, Redux, Figma
+**Familiar:** AWS, LLMs, ThreeJS, Redux, Python
 
 ## Jarvis Projects
 
@@ -21,6 +21,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MuneebAhme
       
   - Stock Quote App: Developed a stock wallet simulator that utilizes the Alpha Vantage API to retrieve stock data and a PostgreSQL database to persist user transactions. The application allows users to view stock quotes, buy stocks, and manage their portfolio with an infinite amount of virtual cash. Technologies used in this project include JDBC for database connectivity, PostgreSQL for data storage, Maven for project management and build automation, and Docker for containerization.
   - Grep App: Developed a Java-based application mimicking the grep command functionality from UNIX, enabling efficient search across large datasets. Leveraged Java 8 Streams and lambda expressions for pattern matching and file processing, enhancing performance and readability. The app recursively scans directories and outputs matched lines to a file, utilizing regular expressions for search criteria. Implemented robust error handling and optimized memory usage by processing files line by line, making it suitable for large-scale data processing.
+
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MuneebAhmed/tree/master/springboot)]: Developed an app that is designed to manage client accounts and execute security orders within a trading system. The application facilitates the management of clients and their accounts, executes buy and sell orders for securities, and provides real-time market data. The project uses Java, Spring Boot, Docker, PostgreSQL, and integrates with the Alpha Vantage API for market data.
 
 
 ## Highlighted Projects

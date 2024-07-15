@@ -23,14 +23,14 @@ skills:
     - JavaScript/TypeScript
     - Nodejs
     - Docker
-    - Python
+    - Springboot
   # At least 5 skills
   familiar:
     - AWS
     - LLMs
     - ThreeJS
     - Redux
-    - Figma
+    - Python
 
 # List of Jarvis projects
 jarvis_projects:
@@ -44,9 +44,9 @@ jarvis_projects:
     description:
       - "Stock Quote App: Developed a stock wallet simulator that utilizes the Alpha Vantage API to retrieve stock data and a PostgreSQL database to persist user transactions. The application allows users to view stock quotes, buy stocks, and manage their portfolio with an infinite amount of virtual cash. Technologies used in this project include JDBC for database connectivity, PostgreSQL for data storage, Maven for project management and build automation, and Docker for containerization."
       - "Grep App: Developed a Java-based application mimicking the grep command functionality from UNIX, enabling efficient search across large datasets. Leveraged Java 8 Streams and lambda expressions for pattern matching and file processing, enhancing performance and readability. The app recursively scans directories and outputs matched lines to a file, utilizing regular expressions for search criteria. Implemented robust error handling and optimized memory usage by processing files line by line, making it suitable for large-scale data processing."
-#  - name: "Springboot App"
-#    git_url: "/springboot"
-#    description: ""
+  - name: "Springboot App"
+    git_url: "/springboot"
+    description: "Developed an app that is designed to manage client accounts and execute security orders within a trading system. The application facilitates the management of clients and their accounts, executes buy and sell orders for securities, and provides real-time market data. The project uses Java, Spring Boot, Docker, PostgreSQL, and integrates with the Alpha Vantage API for market data."
 #  - name: "Python Data Analytics"
 #    git_url: "/python_data_anlytics"
 #    description: ""
