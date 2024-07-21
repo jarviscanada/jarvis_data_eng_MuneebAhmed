@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Trader } from './trader';
 import { of, Observable, BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TraderListService {
-  private traderListSubject: BehaviorSubject<Trader[]> = new BehaviorSubject<Trader[]>([
+  private traderListSubject: BehaviorSubject<Trader[]> = new BehaviorSubject<
+    Trader[]
+  >([
     {
       key: '1',
       id: 1,
@@ -119,7 +122,7 @@ export class TraderListService {
     },
   ]);
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getDataSource(): Observable<Trader[]> {
     return this.traderListSubject.asObservable();
@@ -132,7 +135,9 @@ export class TraderListService {
   addTrader(trader: Trader): void {
     console.log('Adding trader:', trader);
     const currentList = this.traderListSubject.value;
-    const newId = currentList.length ? Math.max(...currentList.map((t) => t.id)) + 1 : 1;
+    const newId = currentList.length
+      ? Math.max(...currentList.map((t) => t.id)) + 1
+      : 1;
     const newTrader = {
       ...trader,
       key: newId.toString(),
@@ -147,5 +152,31 @@ export class TraderListService {
     const currentList = this.traderListSubject.value;
     const updatedList = currentList.filter((trader) => trader.id !== id);
     this.traderListSubject.next(updatedList);
+  }
+
+  depositFunds(traderId: number, amount: number): void {
+    this.http
+      .put(`/trader/deposit/traderId/${traderId}/amount/${amount}`, {})
+      .subscribe(() => {
+        const currentList = this.traderListSubject.value;
+        const trader = currentList.find((t) => t.id === traderId);
+        if (trader) {
+          trader.amount += amount;
+          this.traderListSubject.next([...currentList]);
+        }
+      });
+  }
+
+  withdrawFunds(traderId: number, amount: number): void {
+    this.http
+      .put(`/trader/withdraw/traderId/${traderId}/amount/${amount}`, {})
+      .subscribe(() => {
+        const currentList = this.traderListSubject.value;
+        const trader = currentList.find((t) => t.id === traderId);
+        if (trader) {
+          trader.amount -= amount;
+          this.traderListSubject.next([...currentList]);
+        }
+      });
   }
 }

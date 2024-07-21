@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TraderListComponent } from './trader-list/trader-list.component';
 import { TraderFormDialogComponent } from './trader-form-dialog/trader-form-dialog.component';
+import { TraderAccountComponent } from './trader-account/trader-account.component';
+import { DepositWithdrawDialogComponent } from './deposit-withdraw-dialog/deposit-withdraw-dialog.component';
+
+
 
 @NgModule({
   declarations: [
@@ -24,12 +30,14 @@ import { TraderFormDialogComponent } from './trader-form-dialog/trader-form-dial
     DashboardComponent,
     NavbarComponent,
     TraderListComponent,
-    TraderFormDialogComponent
+    TraderFormDialogComponent,
+    TraderAccountComponent,
+    DepositWithdrawDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule, // Add this import
+    RouterModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
     MatTableModule,
@@ -38,7 +46,9 @@ import { TraderFormDialogComponent } from './trader-form-dialog/trader-form-dial
     MatButtonModule,
     FormsModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -7,6 +7,7 @@
       </ng-container>
       <ng-template #actionCell>
         <fa-icon [icon]="faTrash" (click)="deleteTrader($event, trader.id)" class="trash-icon"></fa-icon>
+        <fa-icon [icon]="faInfoCircle" (click)="viewTraderDetails=(trader.id)" class="info-icon"></fa-icon>
       </ng-template>
     </td>
   </ng-container>

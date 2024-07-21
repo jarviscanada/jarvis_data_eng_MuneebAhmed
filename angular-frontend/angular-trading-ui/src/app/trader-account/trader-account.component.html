@@ -1,0 +1,31 @@
+<div class="trader-account">
+    <h2>Trader Account</h2>
+    <div class="trader-details">
+      <div>
+        <p><strong>First Name</strong></p>
+        <p>{{ trader?.firstName }}</p>
+      </div>
+      <div>
+        <p><strong>Last Name</strong></p>
+        <p>{{ trader?.lastName }}</p>
+      </div>
+      <div>
+        <p><strong>Email</strong></p>
+        <p>{{ trader?.email }}</p>
+      </div>
+      <div>
+        <p><strong>Date of Birth</strong></p>
+        <p>{{ trader?.dob }}</p>
+      </div>
+      <div>
+        <p><strong>Country</strong></p>
+        <p>{{ trader?.country }}</p>
+      </div>
+      <div>
+        <p><strong>Amount</strong></p>
+        <p>{{ trader?.amount }}$</p>
+      </div>
+    </div>
+    <button mat-button (click)="openDepositDialog()">Deposit Funds</button>
+    <button mat-button (click)="openWithdrawDialog()">Withdraw Funds</button>
+  </div>

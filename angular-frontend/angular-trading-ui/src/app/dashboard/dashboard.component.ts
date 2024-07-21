@@ -19,12 +19,10 @@ export class DashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog result:', result); // Add this line
       if (result) {
         this.traderListService.addTrader(result);
         this.traderListService.getDataSource().subscribe(data => {
-          console.log('Updated trader list:', data); // Add this line
-          this.cdr.detectChanges(); // Trigger change detection
+          this.cdr.detectChanges(); 
         });
       }
     });
