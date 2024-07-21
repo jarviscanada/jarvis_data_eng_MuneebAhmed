@@ -1,0 +1,42 @@
+.trader-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+.trader-header {
+    background-color: #dfdfdf;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+    color: black;
+    padding-left: 20px;
+    position: relative; /* Add this line */
+}
+
+.trader-header::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%; /* Adjust this value to position the border vertically */
+    height: 50%; /* Adjust this value to change the height of the border */
+    width: 1px;
+    background-color: rgb(160, 160, 160);
+    transform: translateY(-50%); /* Center the border vertically */
+}
+
+.trader-cell {
+    padding: 2px;
+    border-bottom: 1px solid #ddd;
+    padding-left: 20px;
+}
+
+.trash-icon {
+    color: #bdbdbd;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .trash-icon:hover {
+    color: red;
+  }

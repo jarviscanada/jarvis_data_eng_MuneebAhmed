@@ -1,0 +1,16 @@
+<table mat-table [dataSource]="traderList" class="mat-elevation-z8 trader-table">
+  <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+    <th mat-header-cell *matHeaderCellDef class="trader-header">{{ column | titlecase }}</th>
+    <td mat-cell *matCellDef="let trader" class="trader-cell">
+      <ng-container *ngIf="column !== 'actions'; else actionCell">
+        {{ trader[column] }}
+      </ng-container>
+      <ng-template #actionCell>
+        <fa-icon [icon]="faTrash" (click)="deleteTrader($event, trader.id)" class="trash-icon"></fa-icon>
+      </ng-template>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
