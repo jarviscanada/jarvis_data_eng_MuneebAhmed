@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TraderListService } from '../trader-list.service';
 import { Trader } from '../trader';
-import { faTrash, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faInfoCircle, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { TraderEditDialogComponent } from '../trader-edit-dialog/trader-edit-dialog.component';
 
 @Component({
   selector: 'app-trader-list',
@@ -17,6 +18,7 @@ export class TraderListComponent implements OnInit {
   columnKeys: string[] = [];
   faTrash = faTrash;
   faInfoCircle = faInfoCircle;
+  faEdit = faEdit;
 
   constructor(
     private _traderList: TraderListService,
@@ -44,5 +46,22 @@ export class TraderListComponent implements OnInit {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  openEditDialog(trader: Trader): void {
+    const dialogRef = this.dialog.open(TraderEditDialogComponent, {
+      width: '500px',
+      data: trader
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._traderList.updateTrader(trader.id, result);
+        this._traderList.getDataSource().subscribe(data => {
+          this.traderList = data;
+          this.cdr.detectChanges(); 
+        });
+      }
+    });
   }
 }

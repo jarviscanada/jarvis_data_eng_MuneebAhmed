@@ -51,3 +51,14 @@
 .info-icon:hover {
   color: #252F6A;
 }
+
+.edit-icon {
+  color: #bdbdbd;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: 5px;
+}
+
+.edit-icon:hover {
+  color: #3A4AA5;
+}

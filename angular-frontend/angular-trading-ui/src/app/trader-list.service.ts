@@ -180,4 +180,13 @@ export class TraderListService {
       this.traderListSubject.next([...currentList]);
     }
   }
+
+  updateTrader(id: number, updatedTrader: Partial<Trader>): void {
+    const traders = this.traderListSubject.getValue();
+    const index = traders.findIndex(trader => trader.id === id);
+    if (index !== -1) {
+      traders[index] = { ...traders[index], ...updatedTrader };
+      this.traderListSubject.next([...traders]); // Ensure a new array is emitted
+    }
+  }
 }

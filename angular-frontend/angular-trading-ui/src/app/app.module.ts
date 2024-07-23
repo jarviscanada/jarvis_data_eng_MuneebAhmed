@@ -27,6 +27,7 @@ import { TraderFormDialogComponent } from './trader-form-dialog/trader-form-dial
 import { TraderAccountComponent } from './trader-account/trader-account.component';
 import { DepositWithdrawDialogComponent } from './deposit-withdraw-dialog/deposit-withdraw-dialog.component';
 import { QuotesListComponent } from './quotes-list/quotes-list.component';
+import { TraderEditDialogComponent } from './trader-edit-dialog/trader-edit-dialog.component';
 
 
 
@@ -39,7 +40,8 @@ import { QuotesListComponent } from './quotes-list/quotes-list.component';
     TraderFormDialogComponent,
     TraderAccountComponent,
     DepositWithdrawDialogComponent,
-    QuotesListComponent
+    QuotesListComponent,
+    TraderEditDialogComponent
   ],
   imports: [
     BrowserModule,
