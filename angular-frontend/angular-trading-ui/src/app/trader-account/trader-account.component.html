@@ -1,5 +1,6 @@
 <div class="trader-account">
-    <h2>Trader Account</h2>
+    <h1>Trader Account</h1>
+    <div class="trader-section">
     <div class="trader-details">
       <div>
         <p><strong>First Name</strong></p>
@@ -21,11 +22,18 @@
         <p><strong>Country</strong></p>
         <p>{{ trader?.country }}</p>
       </div>
-      <div>
+      <!-- <div>
         <p><strong>Amount</strong></p>
         <p>{{ trader?.amount }}$</p>
-      </div>
+      </div> -->
     </div>
-    <button mat-button (click)="openDepositDialog()">Deposit Funds</button>
-    <button mat-button (click)="openWithdrawDialog()">Withdraw Funds</button>
+    <div class="amount">
+      <p>Amount</p>
+        <p><strong>{{ trader?.amount }}$</strong></p>
+    </div>
+    <div class="actions">
+    <button mat-raised-button color="primary" (click)="openDepositDialog()">Deposit Funds</button>
+    <button mat-raised-button color="accent" (click)="openWithdrawDialog()">Withdraw Funds</button>
+    </div>
+    </div>
   </div>

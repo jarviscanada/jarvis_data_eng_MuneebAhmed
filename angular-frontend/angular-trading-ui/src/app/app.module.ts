@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router'; 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -11,6 +11,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +26,7 @@ import { TraderListComponent } from './trader-list/trader-list.component';
 import { TraderFormDialogComponent } from './trader-form-dialog/trader-form-dialog.component';
 import { TraderAccountComponent } from './trader-account/trader-account.component';
 import { DepositWithdrawDialogComponent } from './deposit-withdraw-dialog/deposit-withdraw-dialog.component';
+import { QuotesListComponent } from './quotes-list/quotes-list.component';
 
 
 
@@ -32,7 +38,8 @@ import { DepositWithdrawDialogComponent } from './deposit-withdraw-dialog/deposi
     TraderListComponent,
     TraderFormDialogComponent,
     TraderAccountComponent,
-    DepositWithdrawDialogComponent
+    DepositWithdrawDialogComponent,
+    QuotesListComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,11 @@ import { DepositWithdrawDialogComponent } from './deposit-withdraw-dialog/deposi
     MatDialogModule,
     MatInputModule,
     HttpClientModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonToggleModule,
+    MatIconModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

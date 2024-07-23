@@ -122,14 +122,23 @@ export class TraderListService {
     },
   ]);
 
+  private baseUrl: string = 'http://localhost:3000';
+
   constructor(private http: HttpClient) {}
 
   getDataSource(): Observable<Trader[]> {
     return this.traderListSubject.asObservable();
   }
 
-  getColumns(): string[] {
-    return ['firstName', 'lastName', 'email', 'dob', 'country', 'actions'];
+  getColumns(): { key: string, displayName: string }[] {
+    return [
+      { key: 'firstName', displayName: 'First Name' },
+      { key: 'lastName', displayName: 'Last Name' },
+      { key: 'email', displayName: 'Email' },
+      { key: 'dob', displayName: 'Date of Birth' },
+      { key: 'country', displayName: 'Country' },
+      { key: 'actions', displayName: 'Actions' }
+    ];
   }
 
   addTrader(trader: Trader): void {
@@ -155,28 +164,20 @@ export class TraderListService {
   }
 
   depositFunds(traderId: number, amount: number): void {
-    this.http
-      .put(`/trader/deposit/traderId/${traderId}/amount/${amount}`, {})
-      .subscribe(() => {
-        const currentList = this.traderListSubject.value;
-        const trader = currentList.find((t) => t.id === traderId);
-        if (trader) {
-          trader.amount += amount;
-          this.traderListSubject.next([...currentList]);
-        }
-      });
+    const currentList = this.traderListSubject.value;
+    const trader = currentList.find((t) => t.id === traderId);
+    if (trader) {
+      trader.amount += amount;
+      this.traderListSubject.next([...currentList]);
+    }
   }
 
   withdrawFunds(traderId: number, amount: number): void {
-    this.http
-      .put(`/trader/withdraw/traderId/${traderId}/amount/${amount}`, {})
-      .subscribe(() => {
-        const currentList = this.traderListSubject.value;
-        const trader = currentList.find((t) => t.id === traderId);
-        if (trader) {
-          trader.amount -= amount;
-          this.traderListSubject.next([...currentList]);
-        }
-      });
+    const currentList = this.traderListSubject.value;
+    const trader = currentList.find((t) => t.id === traderId);
+    if (trader) {
+      trader.amount -= amount;
+      this.traderListSubject.next([...currentList]);
+    }
   }
 }

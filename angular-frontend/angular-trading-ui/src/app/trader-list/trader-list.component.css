@@ -44,4 +44,10 @@
 .info-icon {
   margin-left: 5px;
   color: #3A4AA5;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.info-icon:hover {
+  color: #252F6A;
 }

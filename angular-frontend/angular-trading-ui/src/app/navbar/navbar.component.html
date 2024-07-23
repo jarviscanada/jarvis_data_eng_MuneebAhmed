@@ -1,6 +1,10 @@
 <div class="nav-body">
-    <div class="nav-item">
-        <a routerLink="/dashboard">
-            <fa-icon [icon]="'address-book'" size="2x"></fa-icon>
-        </a>
-    </div>
+    <mat-button-toggle-group appearance="legacy" vertical>
+      <mat-button-toggle value="dashboard" routerLink="/dashboard" class="dashboard-btn" [checked]="isDashboardRoute">
+        <fa-icon [icon]="'address-book'" size="2x" class="icon"></fa-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="quotes" routerLink="/quotes" class="quotes-btn" [checked]="isQuotesRoute">
+        <fa-icon [icon]="'book'" size="2x" class="icon"></fa-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+</div>

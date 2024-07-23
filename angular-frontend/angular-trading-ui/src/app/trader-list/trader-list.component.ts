@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TraderListService } from '../trader-list.service';
 import { Trader } from '../trader';
 import { faTrash, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { TraderFormDialogComponent } from '../trader-form-dialog/trader-form-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,16 +13,8 @@ import { Router } from '@angular/router';
 })
 export class TraderListComponent implements OnInit {
   traderList: Trader[] = [];
-  displayedColumns: string[] = [
-    'id',
-    'firstName',
-    'lastName',
-    'dob',
-    'country',
-    'email',
-    'amount',
-    'actions',
-  ];
+  displayedColumns: { key: string, displayName: string }[] = [];
+  columnKeys: string[] = [];
   faTrash = faTrash;
   faInfoCircle = faInfoCircle;
 
@@ -40,20 +31,9 @@ export class TraderListComponent implements OnInit {
       this.cdr.detectChanges();
     });
     this.displayedColumns = this._traderList.getColumns();
+    this.columnKeys = this.displayedColumns.map(c => c.key);
   }
 
-  // openAddTraderDialog(): void {
-  //   const dialogRef = this.dialog.open(TraderFormDialogComponent, {
-  //     width: '250px',
-  //   });
-
-  //   dialogRef.afterClosed().subscribe((result) => {
-  //     console.log('Dialog result:', result);
-  //     if (result) {
-  //       this._traderList.addTrader(result);
-  //     }
-  //   });
-  // }
   viewTraderDetails(id: number): void {
     this.router.navigate(['/trader-account', id]);
   }
