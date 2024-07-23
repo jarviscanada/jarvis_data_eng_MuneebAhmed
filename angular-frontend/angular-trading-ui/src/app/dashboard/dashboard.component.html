@@ -1,7 +1,13 @@
 <div class="dashboard">
   <div class="dashboard-header">
-  <h1>Dashboard</h1>
-  <button mat-raised-button (click)="openTraderFormDialog()">Add New Trader</button>
-</div>
-  <app-trader-list></app-trader-list>
+    <h1>Dashboard</h1>
+    <div class="actions">
+      <mat-form-field appearance="fill">
+        <mat-label>Search traders</mat-label>
+        <input matInput (keyup)="traderListComponent.applyFilter($event)" placeholder="Ex. John Doe">
+      </mat-form-field>
+      <button mat-raised-button (click)="openTraderFormDialog()">Add New Trader</button>
+    </div>
+  </div>
+  <app-trader-list #traderListComponent></app-trader-list>
 </div>

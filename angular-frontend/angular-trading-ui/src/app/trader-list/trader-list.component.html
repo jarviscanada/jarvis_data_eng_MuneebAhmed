@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="traderList" class="mat-elevation-z8 trader-table">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 trader-table">
   <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column.key">
     <th mat-header-cell *matHeaderCellDef class="trader-header">{{ column.displayName }}</th>
     <td mat-cell *matCellDef="let trader" class="trader-cell">
@@ -16,3 +16,5 @@
   <tr mat-header-row *matHeaderRowDef="columnKeys"></tr>
   <tr mat-row *matRowDef="let row; columns: columnKeys"></tr>
 </table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
