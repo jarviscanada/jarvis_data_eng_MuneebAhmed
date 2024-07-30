@@ -39,7 +39,7 @@ export class TraderListComponent implements OnInit, AfterViewInit {
       this.cdr.detectChanges();
     });
     this.displayedColumns = this._traderList.getColumns();
-    this.columnKeys = this.displayedColumns.map(c => c.key);
+    this.columnKeys = this.displayedColumns.map((c) => c.key);
   }
 
   ngAfterViewInit(): void {
@@ -66,16 +66,16 @@ export class TraderListComponent implements OnInit, AfterViewInit {
   openEditDialog(trader: Trader): void {
     const dialogRef = this.dialog.open(TraderEditDialogComponent, {
       width: '500px',
-      data: trader
+      data: trader,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this._traderList.updateTrader(trader.id, result);
-        this._traderList.getDataSource().subscribe(data => {
+        this._traderList.getDataSource().subscribe((data) => {
           this.traderList = data;
           this.dataSource.data = this.traderList;
-          this.cdr.detectChanges(); 
+          this.cdr.detectChanges();
         });
       }
     });

@@ -31,24 +31,30 @@ export class TraderAccountComponent implements OnInit {
       width: '250px',
       data: { type: 'deposit', traderId: this.trader?.id }
     });
-
+  
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.traderListService.depositFunds(this.trader?.id!, result.amount);
+        this.traderListService.getDataSource().subscribe((data) => {
+          this.trader = data.find(trader => trader.id === this.trader?.id);
+        });
       }
     });
   }
-
+  
   openWithdrawDialog(): void {
     const dialogRef = this.dialog.open(DepositWithdrawDialogComponent, {
       width: '250px',
       data: { type: 'withdraw', traderId: this.trader?.id }
     });
-
+  
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.traderListService.withdrawFunds(this.trader?.id!, result.amount);
+        this.traderListService.getDataSource().subscribe((data) => {
+          this.trader = data.find(trader => trader.id === this.trader?.id);
+        });
       }
     });
   }
-}
+};
