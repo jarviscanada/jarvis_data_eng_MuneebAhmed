@@ -18,7 +18,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Add dummy traders
+
         traderRepository.save(new Trader(null, "1", "Mike", "Spencer", "1990-01-01", "Canada", "mike@test.com", 0, "<button (click)='deleteTrader'>Delete Trader</button>"));
         traderRepository.save(new Trader(null, "2", "Hellen", "Miller", "1990-01-01", "Austria", "hellen@test.com", 0, "<button (click)='deleteTrader'>Delete Trader</button>"));
         traderRepository.save(new Trader(null, "3", "Jack", "Reed", "1990-01-01", "United Kingdom", "jack@test.com", 0, "<button (click)='deleteTrader'>Delete Trader</button>"));
@@ -30,7 +30,7 @@ public class DataLoader implements CommandLineRunner {
         traderRepository.save(new Trader(null, "9", "Valerie", "Lee", "1990-01-01", "Turkey", "valerie@test.com", 0, "<button (click)='deleteTrader'>Delete Trader</button>"));
         traderRepository.save(new Trader(null, "10", "Lydia", "Zeena", "1990-01-01", "Morocco", "hellen@test.com", 0, "<button (click)='deleteTrader'>Delete Trader</button>"));
 
-        // Add dummy quotes
+
         quoteRepository.save(new Quote(null, "FB", 319.48, 0, 13, 13, 400));
         quoteRepository.save(new Quote(null, "AAPL", 500.23, 0, 18, 18, 100));
         quoteRepository.save(new Quote(null, "MSFT", 100.53, 0, 25, 25, 200));

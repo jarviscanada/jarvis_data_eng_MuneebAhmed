@@ -17,10 +17,8 @@ public class Quote {
     private int askPrice;
     private int askSize;
 
-    // Default constructor
     public Quote() {}
 
-    // Parameterized constructor
     public Quote(Long id, String ticker, double lastPrice, int bidPrice, int bidSize, int askPrice, int askSize) {
         this.id = id;
         this.ticker = ticker;
@@ -30,8 +28,6 @@ public class Quote {
         this.askPrice = askPrice;
         this.askSize = askSize;
     }
-
-    // Getters and Setters
 
 
     public Long getId() {

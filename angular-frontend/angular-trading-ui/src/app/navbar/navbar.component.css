@@ -2,14 +2,6 @@ fa-icon {
     color: white;
 }
 
-/* .nav-item {
-    margin-top: 5%;
-    width: 100%;
-    text-align: center;
-    background-color: #274e8a;
-    padding-top: 20px;
-    padding-bottom: 20px;
-} */
 
 .nav-body{
     padding-top: 10%;
@@ -47,7 +39,7 @@ fa-icon {
  
 
 .dashboard-btn:hover .icon {
-    color: rgb(236,139,156); /* Pink color */
+    color: rgb(236,139,156); 
  }
 
  .quotes-btn {
@@ -63,7 +55,7 @@ fa-icon {
  }
 
 .quotes-btn:hover .icon {
-    color: rgb(236,139,156); /* Pink color */
+    color: rgb(236,139,156); 
  }
 
 

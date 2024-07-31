@@ -19,10 +19,8 @@ public class Trader {
     private double amount;
     private String actions;
 
-    // Default constructor
     public Trader() {}
 
-    // Parameterized constructor
     public Trader(Long id, String traderKey, String firstName, String lastName, String dob, String country, String email, double amount, String actions) {
         this.id = id;
         this.traderKey = traderKey;
@@ -35,7 +33,6 @@ public class Trader {
         this.actions = actions;
     }
 
-    // Getters and Setters
 
     public Long getId() {
         return id;
