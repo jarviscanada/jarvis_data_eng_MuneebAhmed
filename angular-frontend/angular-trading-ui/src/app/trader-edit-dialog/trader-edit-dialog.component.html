@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Edit Trader</h2>
+<mat-dialog-content>
+  <form #editTraderForm="ngForm" class="trader-form">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput ngModel name="firstName" required [ngModel]="data.firstName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput ngModel name="lastName" required [ngModel]="data.lastName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" ngModel name="email" required [ngModel]="data.email">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-flat-button color="warn" (click)="onCancel()">Cancel</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="editTraderForm.value" cdkFocusInitial>Save</button>
+</mat-dialog-actions>

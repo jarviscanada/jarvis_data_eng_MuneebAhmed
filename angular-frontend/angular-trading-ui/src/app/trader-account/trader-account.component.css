@@ -1,0 +1,72 @@
+.trader-account {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  }
+  
+  .trader-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-around;
+    background-color: white;
+    width: 35%;
+    padding: 40px;
+  }
+  
+  .trader-details > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .trader-details > div > p > strong {
+      font-weight: bold;
+      font-size: 1.3em;
+  }
+
+  .trader-details > div > p {
+      font-size: 1.2em;
+  }
+
+  h1{
+    font-weight: bold;
+}
+
+.trader-section {
+  display: flex;
+  flex-direction: row;
+  gap : 30px;
+}
+
+.amount{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  background-color: white;
+  width: 20%;
+}
+
+.amount > p > strong {
+    font-size: 2.0em; 
+}
+
+.amount > p {
+    font-size: 1.8em; 
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    height: fit-content;
+}

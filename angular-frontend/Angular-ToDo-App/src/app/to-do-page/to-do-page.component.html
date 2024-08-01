@@ -1,0 +1,64 @@
+<div class="justify-center flex flex-col items-center gap-4 p-2 min-w-full">
+  <h1 class="text-3xl font-bold">Angular ToDo App</h1>
+
+  <!-- Form for adding a new to-do item -->
+  <form
+    class="flex flex-row gap-4 max-w-full justify-center"
+    (submit)="addToDo($event)"
+  >
+    <input
+      [(ngModel)]="newToDo"
+      type="text"
+      placeholder="Enter a task"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg md:w-96 w-72 p-2.5 outline-none focus:border-blue-500"
+      name="newToDo"
+    />
+    <button
+      class="bg-blue-500 text-white font-medium py-2 px-4 rounded-lg"
+      type="submit"
+    >
+      Add
+    </button>
+  </form>
+
+  <!-- List of to-do items -->
+  <ul class="mt-20 flex flex-col gap-4">
+    <li
+      *ngFor="let todo of toDoList; let i = index"
+      class="flex flex-row justify-between md:w-96 w-72 items-center bg-gray-50 border-gray-300 rounded-lg p-2"
+    >
+      <div *ngIf="!editIndex.includes(i)">
+        <a [routerLink]="['/todo', i]" class="flex-1">{{todo}}</a>
+      </div>
+      <div *ngIf="editIndex.includes(i)">
+        <input
+          [(ngModel)]="editTodo"
+          type="text"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 outline-none focus:border-blue-500"
+        />
+      </div>
+      <div class="flex flex-row gap-4">
+        <button
+          class="bg-blue-500 text-white font-medium py-2 px-4 rounded-lg"
+          *ngIf="!editIndex.includes(i)"
+          (click)="editToDoItem(i)"
+        >
+          Edit
+        </button>
+        <button
+          class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg"
+          *ngIf="editIndex.includes(i)"
+          (click)="saveToDoItem(i)"
+        >
+          Save
+        </button>
+        <button
+          class="bg-red-500 text-white font-medium py-2 px-4 rounded-lg"
+          (click)="deleteToDo(todo)"
+        >
+          Delete
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
