@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Add New Trader</h2>
+<mat-dialog-content>
+  <form #traderForm="ngForm" class="trader-form">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput ngModel name="firstName" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput ngModel name="lastName" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" ngModel name="email" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Country</mat-label>
+      <input matInput ngModel name="country" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Date of Birth</mat-label>
+      <input matInput type="date" ngModel name="dob" required>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-flat-button color="warn" (click)="onCancel()">Cancel</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="traderForm.value" cdkFocusInitial>Add</button>
+</mat-dialog-actions>

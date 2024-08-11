@@ -1,0 +1,59 @@
+h1{
+    font-weight: bold;
+}
+
+.quotes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quotes-table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+
+.quotes-header {
+  background-color: #dfdfdf;
+  font-weight: bold;
+  text-align: left;
+  padding: 8px;
+  color: black;
+  padding-left: 20px;
+  position: relative;
+}
+
+.quotes-header:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  height: 50%;
+  width: 1px;
+  background-color: rgb(160, 160, 160);
+  transform: translateY(-50%);
+}
+
+.quotes-cell {
+  padding: 2px;
+  border-bottom: 1px solid #ddd;
+  padding-left: 20px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+

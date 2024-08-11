@@ -1,0 +1,10 @@
+<div class="justify-center flex flex-col items-center gap-4 p-2 min-w-full">
+    <h1 class="text-3xl font-bold">To-Do Detail</h1>
+    <div *ngIf="todo">
+      <p class="text-lg">{{ todo }}</p>
+    </div>
+    <div *ngIf="!todo">
+      <p class="text-lg">To-Do not found!</p>
+    </div>
+    <button [routerLink]="['/todo']" class="bg-blue-500 text-white font-medium py-2 px-4 rounded-lg">Back to To-Do List</button>
+  </div>

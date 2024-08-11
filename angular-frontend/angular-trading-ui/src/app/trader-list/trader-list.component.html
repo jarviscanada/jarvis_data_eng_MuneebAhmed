@@ -1,0 +1,20 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 trader-table">
+  <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column.key">
+    <th mat-header-cell *matHeaderCellDef class="trader-header">{{ column.displayName }}</th>
+    <td mat-cell *matCellDef="let trader" class="trader-cell">
+      <ng-container *ngIf="column.key !== 'actions'; else actionCell">
+        {{ trader[column.key] }}
+      </ng-container>
+      <ng-template #actionCell>
+        <fa-icon [icon]="faTrash" (click)="deleteTrader($event, trader.id)" class="trash-icon"></fa-icon>
+        <fa-icon [icon]="faInfoCircle" (click)="viewTraderDetails(trader.id)" class="info-icon"></fa-icon>
+        <fa-icon [icon]="faEdit" (click)="openEditDialog(trader)" class="edit-icon"></fa-icon>
+      </ng-template>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnKeys"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnKeys"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

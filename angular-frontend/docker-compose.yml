@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  backend:
+    build: ./trading-backend
+    ports:
+      - "8080:8080"
+    networks:
+      - trading-network
+
+  frontend:
+    build: ./angular-trading-ui
+    ports:
+      - "4200:80"
+    networks:
+      - trading-network
+
+networks:
+  trading-network:
+    driver: bridge
