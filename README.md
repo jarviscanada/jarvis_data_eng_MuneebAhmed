@@ -24,6 +24,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MuneebAhme
 
 **Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MuneebAhmed/tree/master/springboot)]: Developed an app that is designed to manage client accounts and execute security orders within a trading system. The application facilitates the management of clients and their accounts, executes buy and sell orders for securities, and provides real-time market data. The project uses Java, Spring Boot, Docker, PostgreSQL, and integrates with the Alpha Vantage API for market data.
 
+**Angular App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MuneebAhmed/tree/master/angular-frontend)]: Developed a trading application using Angular, integrating with a Spring Boot backend. The application features real-time data updates, user authentication, and a responsive UI. Utilized Angular Material for UI components, RxJS for state management, and NgRx for handling complex state interactions. The backend services were built with Spring Boot, providing RESTful APIs for data access and manipulation. Docker was used for containerization, ensuring consistent environments across development and production.
+
 
 ## Highlighted Projects
 **Rookery**: Developed a serverless bird identification learning website using Nextjs and AWS Amplify. Users can learn about Toronto birds in a fun and interactive way by doing engaging quizzes. This was created to make learning free for Toronto bird watchers. These quizzes are stored and managed using GraphQL, DynamoDB and AWS S3. Enhanced user experience by tracking and saving individual progress using AWS authentication.
